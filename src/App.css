@@ -1,38 +1,177 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.title {
+  cursor: pointer;
+  padding-right: 50px;
+}
+
+.title:hover {
+  color: #007BFF;
+}
+
+  nav {
+  display: flex;
+  gap: 20px;
+  height: 15px;
+  padding-right: 20px;
+  position: relative;
+  font-size: 15px;
+  padding-left:50px;
+}
+
+@media (max-width: 1370px) {  /* adjust as needed */
+  header nav {
+    margin-top: -30px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 600px) {  /* adjust as needed */
+  header nav {
+    margin-top: -100px;
+  }
+}
+@media (max-width: 600px) {  /* adjust as needed */
+  header nav {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {  /* adjust as needed */
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+
+nav button {
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  
+}
+
+nav button:hover {
+  color: #007BFF;
+}
+
+.dropdown-about {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.dropdown-about button {
+  background-color: inherit;  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+
+
+.dropdown-about button:hover {
+  background-color: #f1f1f1;
+}
+
+
+.dropdown-interview {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
+.dropdown-interview button {
+  background-color: inherit;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-interview button:hover {
+  background-color: #f1f1f1;
+}
+
+
+header .about-button::after,
+header .interview-button::after {
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-left: 5px;
+}
+
+
+
+
+footer {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 1050px) {  
+  footer nav {
+    margin-bottom: 30px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.title-footer{
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.title-footer:hover {
+  color: #007BFF;
 }

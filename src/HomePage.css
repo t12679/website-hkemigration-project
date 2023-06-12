@@ -1,0 +1,98 @@
+.Homepage1 {
+    padding: 40px;
+    margin: auto;
+    width: 70%;
+}
+    
+
+.Homepage1-heading {
+    text-align: center;
+}
+
+
+.Homepage2{
+    margin-top: 40px;
+    background-color: rgba(49,118,84,255);
+    width: 100%;
+
+}
+
+.Homepage2-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%; 
+    margin: auto; 
+    padding: 40px;
+    color:white;
+}
+
+.Homepage2-content p {
+    margin-bottom: 40px;
+ }
+
+
+ .Homepage3{
+    background-color: white;
+    width: 100%;
+ }
+
+
+ .Homepage3-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%; 
+    margin: auto; 
+    font-size: 30px;
+    padding: 40px;
+ }
+
+
+ .Homepage3-content-heading{
+    font-size: 30px;
+ }
+
+ .Homepage3-content-p{
+    font-size: 20px;
+ }
+
+
+  .Learn-more-button{
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+    color: green;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 2px solid green; 
+    width: 130px;
+  }
+
+  .Homepage-conclusion{
+    margin-top: 40px;
+    background-color: rgb(40,36,36);
+    width: 100%;
+    
+  }
+
+  .conclusion-content {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    justify-content: center;
+    width: 70%; 
+    margin: auto; 
+    padding: 40px;
+}
+
+  .Homepage-heading4{
+    width: 400px;
+    color: white;
+  }
+
+
+  
