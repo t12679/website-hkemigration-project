@@ -1,10 +1,13 @@
 import React from 'react';
+import DotChart from './chart';
 
 function Survey() {
   return (
     <div>
-      <h2>Take the Survey</h2>
-      <p>This is the Survey page.</p>
+      
+      <DotChart people={3119214}/>
+      
+        
     </div>
   );
 }

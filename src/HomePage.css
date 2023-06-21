@@ -10,6 +10,135 @@
 }
 
 
+.Homepage1-content{
+    margin-top: 30px;
+    font-size: 17px;
+}
+
+
+.Chart-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* new */
+    height: 100%; /* new */
+    margin-bottom: 50px;
+    height: 380px;
+    position: relative;
+}
+
+
+
+.Chart-titles {
+    display: flex;
+    justify-content: center;
+    width: 70%; /* or adjust as necessary */
+    gap: 350px;
+}
+
+
+.Charts-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 70%; /* or adjust as necessary */
+    gap: 80px;
+}
+
+
+.chart-legend {
+    display: flex;
+    justify-content: center; /* Center the legend items horizontally */
+    padding: 1em; /* Add some padding around the legend */
+    position: absolute;
+    top: 0;
+    left: 130px;
+}
+
+  
+.legend-item {
+    display: flex;
+    align-items: center; /* Align the color box and the label vertically */
+    margin: 0 0.5em; /* Add some margin to each side of the item for spacing */
+    font-size: 12px;
+}
+
+.legend-color {
+    width: 1em; /* Set a fixed width for the color box */
+    height: 1em; /* Set a fixed height for the color box */
+    margin-right: 0.5em; /* Add some margin to the right of the color box */
+}
+
+
+
+.Chart-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 80px;
+    
+}
+
+.chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+  }
+
+
+.chart-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+
+.Year{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.button-group{
+    display: flex;
+    margin-left: 200px;
+    position: relative;
+
+}
+
+.button-group button {
+    background-color: white;
+    border: 1px solid black; 
+    border-right: none; 
+    width: 60px;
+    height: 30px;
+    cursor: pointer;    
+}
+
+.first-button {
+    border-radius: 5px 0 0 5px;
+}
+
+.last-button {
+    border-radius: 0 5px 5px 0;
+    border-right: 1px solid black !important;
+}
+
+
+.button-group button.selected {
+    background-color:rgb(62, 182, 230); 
+    color: white; 
+}
+
+.ChartSource{
+ position: absolute;
+ right: 20%;
+ bottom: 0;
+}
+
+
 .Homepage2{
     margin-top: 40px;
     background-color: rgba(49,118,84,255);
@@ -25,6 +154,7 @@
     margin: auto; 
     padding: 40px;
     color:white;
+    font-size: 23px;
 }
 
 .Homepage2-content p {
@@ -90,7 +220,7 @@
 }
 
   .Homepage-heading4{
-    width: 400px;
+    width: 380px;
     color: white;
   }
 
