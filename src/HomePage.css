@@ -1,7 +1,9 @@
+
 .Homepage1 {
     padding: 40px;
     margin: auto;
     width: 70%;
+    
 }
     
 
@@ -11,8 +13,9 @@
 
 
 .Homepage1-content{
-    margin-top: 30px;
-    font-size: 17px;
+    
+    font-size: 25px;
+    text-align: center;
 }
 
 
@@ -21,15 +24,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end; /* new */
-    height: 100%; /* new */
+
     margin-bottom: 50px;
-    height: 380px;
+    height: 550px; 
     position: relative;
+
 }
 
 
+@media (max-width: 1200px) {
+    .Chart-section,
+    .Charts-container {
+      width: 100%;
+    }
+  
+    .Chart-section {
+      height: auto;
+    }
+  }
 
 .Chart-titles {
+    flex: 1;
     display: flex;
     justify-content: center;
     width: 70%; /* or adjust as necessary */
@@ -39,19 +54,23 @@
 
 .Charts-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     width: 70%; /* or adjust as necessary */
-    gap: 80px;
+    
 }
 
+.year-2019.Chart-section {
+    height: 400px;
+}
 
 .chart-legend {
     display: flex;
     justify-content: center; /* Center the legend items horizontally */
     padding: 1em; /* Add some padding around the legend */
     position: absolute;
-    top: 0;
+    top: 200px;
     left: 130px;
 }
 
@@ -71,12 +90,14 @@
 
 
 
-.Chart-container {
+.First-Chart-container {
+    order: 2;
     display: flex;
     align-items: flex-end;
     gap: 80px;
-    
+
 }
+
 
 .chart-wrapper {
     display: flex;
@@ -92,7 +113,12 @@
     margin-top: 10px;
 }
 
-
+.Chart-description {
+    order: 1;
+    text-align: center;
+    font-size: 20px;
+    margin: 30px 0px; /* adjust as necessary */
+}
 
 
 .Year{
@@ -133,17 +159,29 @@
 }
 
 .ChartSource{
- position: absolute;
- right: 20%;
- bottom: 0;
+    order: 3;
+    margin: 20px;
+    
 }
 
 
+.Second-chart-container{
+    order: 4;
+    height: 200px;
+    display: flex;
+    justify-content: flex-end;
+    width: 500px;
+}
+
+.Second-chart-container1{
+    align-self: flex-end;
+}
+
+
+
 .Homepage2{
-    margin-top: 40px;
     background-color: rgba(49,118,84,255);
     width: 100%;
-
 }
 
 .Homepage2-content {
@@ -200,6 +238,17 @@
     cursor: pointer;
     border: 2px solid green; 
     width: 130px;
+  }
+
+  .Story-button{
+    padding: 10px 10px;
+    width: 150px;
+    background-color: white;
+    border: none; 
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+
   }
 
   .Homepage-conclusion{
