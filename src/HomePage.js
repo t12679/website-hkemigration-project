@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import useContentful from './useContentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import DotChart from './chart';
+import WorldMap from './WorldMap';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 
@@ -14,25 +15,25 @@ import ReactMarkdown from 'react-markdown';
 
 function HomePage({ setVisibleComponent }) {
     const { t } = useTranslation();
-    const [currentYear, setCurrentYear] = useState(2020);
-    const [Year, setYear] = useState(2020);
-    const [selectedButton, setSelectedButton] = useState(2020);
+    const [currentYear, setCurrentYear] = useState(2019);
+    const [Year, setYear] = useState(2019);
+    const [selectedButton, setSelectedButton] = useState(2019);
 
     const handleChangeYear = (year) => {
         const chartSections = document.getElementsByClassName('Chart-section');
     
-        if (year >= 2019 && year <= 2022) {
+        if (year >= 2019 && year <= 2021) {
             setCurrentYear(year);
             setSelectedButton(year);
         }
     
-        if (year >= 2020 && year <= 2022) {
+        if (year >= 2019 && year <= 2021) {
             setYear(year);
         }
     
         // Add or remove the .year-2019 class based on the current year
         for (let i = 0; i < chartSections.length; i++) {
-            if (year === 2019) {
+            if (year === 2022) {
                 chartSections[i].classList.add('year-2019');
             } else {
                 chartSections[i].classList.remove('year-2019');
@@ -46,7 +47,7 @@ function HomePage({ setVisibleComponent }) {
     const { data: chartData2, isLoading: chartData2IsLoading, error: chartData2Error } = useContentful('Chart2Data');
 
     if (isLoading || chartIsLoading || chartData2IsLoading) {
-        return <div>Loading...</div>;
+        return <div></div>;
     }
 
     if (error || chartError || chartData2IsLoading) {
@@ -119,20 +120,26 @@ function HomePage({ setVisibleComponent }) {
                         <DotChart people={data[currentYear].chart2} color='#e6bf01'/>
                         <div className="chart-title">{data[currentYear].chart2Title}</div>
                     </div>
+
                 </div>
-                <div className='ChartSource'>
-                    Source: Census and Statistics Department of the Hong Kong
+                <div className='ChartSource1'>
+                    Source: <a href="https://www.cpr.cuhk.edu.hk/en/press/survey-findings-on-views-about-emigration-from-hong-kong-released-by-the-hong-kong-institute-of-asia-pacific-studies-at-cuhk-3/" 
+                    target="_blank" rel="noopener noreferrer">CUHK Communications and Public Relations Office</a>
                 </div>
             </div>
             
-            {currentYear !== 2019 && (
+            {currentYear !== 2022 && (
             <div className="Second-chart-container">
                 <div className="Second-chart-container1"> 
                         <DotChart people={data2[Year].chart3} color='#e6bf01'/>      
                         <div className="chart-title">{data2[Year].chart3Title}</div>                     
                 </div> 
+                
             </div>
             )}
+            <div className='ChartSource2'>
+                Source: <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
+            </div>
         </div>
 
         <div className="button-group">
@@ -151,21 +158,21 @@ function HomePage({ setVisibleComponent }) {
             </button>
             <button 
                 onClick={() => handleChangeYear(2021)}
-                className={`button ${selectedButton === 2021 ? 'selected' : ''}`}
+                className={`button ${selectedButton === 2021 ? 'selected' : ''} last-button`}
             >
                 2021
             </button>
-            <button 
+           {/* <button 
                 onClick={() => handleChangeYear(2022)}
                 className={`button ${selectedButton === 2022 ? 'selected' : ''} last-button`}
             >
                 2022
-            </button>
+            </button>*/}
         </div>
 
 
 
-        <div className = "Homepage1">
+        <div className = "Homepage1-1">
             <div className = "Homepage1-content">
                  <ReactMarkdown>{entry && entry.fields.Homepage1Content}</ReactMarkdown>
             </div>
@@ -179,12 +186,29 @@ function HomePage({ setVisibleComponent }) {
             </div>
         </div>
 
- 
-
         <div className = "Homepage3">
             <div className="Homepage3-content">
-                <div className="Homepage3-content-p">
+                <div className="Homepage3-heading">
                     <ReactMarkdown>{entry && entry.fields.Homepage3Content}</ReactMarkdown>
+                </div>
+                
+                <div className="Map">
+                    <WorldMap/>
+                </div>
+                <div className='MapSource'>
+                        Source:----
+                    </div>
+                
+            </div>
+            
+        </div>
+ 
+
+        <div className = "Homepage4">
+            <div className="Homepage4-content">
+                <div className="Homepage4-content-p">
+                    <ReactMarkdown>{entry && entry.fields.Homepage4Content}</ReactMarkdown>
+                    
                 </div>
                 <button className = "Learn-more-button" onClick={() => setVisibleComponent('Project')}>Learn More</button>
             </div>
@@ -193,10 +217,10 @@ function HomePage({ setVisibleComponent }) {
         <div className="Homepage-conclusion">
             <div className="conclusion-content">
                 <div className="Homepage-heading4">
-                    <ReactMarkdown>{ entry && entry.fields.Homepage4Content }</ReactMarkdown> 
+                    <ReactMarkdown>{ entry && entry.fields.Homepage5Content }</ReactMarkdown> 
                 </div>
                 <div className="Homepage-heading4">
-                    <ReactMarkdown>{ entry && entry.fields.Homepage5Content }</ReactMarkdown>
+                    <ReactMarkdown>{ entry && entry.fields.Homepage6Content }</ReactMarkdown>
                 </div>
             </div>
         </div>

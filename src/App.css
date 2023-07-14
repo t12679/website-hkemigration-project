@@ -16,8 +16,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 45px;
+  padding: 30px;
   font-size: 12px;
+  background-color: rgba(49,118,84,1);
+  color: white;
 }
 
 h1 {
@@ -33,7 +35,7 @@ h1 {
   color: #007BFF;
 }
 
-  nav {
+nav {
   display: flex;
   gap: 20px;
   height: 15px;
@@ -41,6 +43,7 @@ h1 {
   position: relative;
   font-size: 15px;
   padding-left:50px;
+  
 }
 
 @media (max-width: 1370px) {  /* adjust as needed */
@@ -70,7 +73,7 @@ h1 {
 
 
 nav button {
-  color: #333;
+  color: white;
   background: none;
   border: none;
   cursor: pointer;
@@ -145,7 +148,7 @@ header .interview-button::after {
   content: "";
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid black;
+  border-top: 5px solid white;
   margin-left: 5px;
 }
 

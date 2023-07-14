@@ -5,6 +5,19 @@
     width: 70%;
     
 }
+
+.Homepage1-1 {
+    padding: 40px 0px;
+    margin: auto;
+    width: 100%;
+    background-image: url('./images/hongkong immigration photos.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 30px;
+    
+}
     
 
 .Homepage1-heading {
@@ -13,9 +26,11 @@
 
 
 .Homepage1-content{
-    
+    width: 70%;
     font-size: 25px;
     text-align: center;
+    margin: auto;
+    color: white;
 }
 
 
@@ -158,10 +173,10 @@
     color: white; 
 }
 
-.ChartSource{
+.ChartSource1{
     order: 3;
-    margin: 20px;
-    
+    margin-top: 30px;
+    font-size: 10px;
 }
 
 
@@ -177,6 +192,11 @@
     align-self: flex-end;
 }
 
+.ChartSource2{
+    order: 5;
+    margin-top: 30px;
+    font-size: 10px;
+}
 
 
 .Homepage2{
@@ -199,10 +219,10 @@
     margin-bottom: 40px;
  }
 
-
  .Homepage3{
     background-color: white;
     width: 100%;
+    height: 100%;
  }
 
 
@@ -210,18 +230,60 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 80%; 
+    height: 100%;
+    margin: auto; 
+    padding: 10px;
+ }
+
+ .Homepage3-heading{
+    display: flex;
+    font-size: 17px;
+    padding-bottom: 10px;
+    margin-left: 70px;
+ }
+
+
+ .MapContainer {
+    display: flex;
+
+    width: 100%;
+}
+ .Map{
+    height: auto;
+    width: 100%;
+    padding-bottom: 20px;
+ }
+
+ .MapSource{
+    display: flex;
+    justify-self: flex-end;
+ }
+
+
+ .Homepage4{
+    background-color: rgba(49,118,84,1);
+    width: 100%;
+    color: white;
+    padding: 20px 0 40px 0;
+ }
+
+
+ .Homepage4-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 70%; 
     margin: auto; 
     font-size: 30px;
-    padding: 40px;
  }
 
 
- .Homepage3-content-heading{
+ .Homepage4-content-heading{
     font-size: 30px;
  }
 
- .Homepage3-content-p{
+ .Homepage4-content-p{
     font-size: 20px;
  }
 
@@ -238,11 +300,13 @@
     cursor: pointer;
     border: 2px solid green; 
     width: 130px;
+    
   }
 
   .Story-button{
     padding: 10px 10px;
     width: 150px;
+    color:  rgba(49,118,84,1);
     background-color: white;
     border: none; 
     border-radius: 15px;
@@ -252,10 +316,8 @@
   }
 
   .Homepage-conclusion{
-    margin-top: 40px;
     background-color: rgb(40,36,36);
     width: 100%;
-    
   }
 
   .conclusion-content {
