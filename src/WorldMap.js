@@ -25,14 +25,37 @@ const colorScale = scaleLinear()
   .domain([0, 15]) // input percentage range
   .range(["#b3e2cd", "#1e9647"]); // colors light to dark
 
+
 function WorldMap() {
   return (
     <div className='map-container'>
+      <div className="tableContainer">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Country</th>
+                      <th>Percentage</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {paths.map((path, i) => (
+                      <tr key={i}>
+                          <td>{path.name}</td>
+                          <td>{`${path.percentage}%`}</td>
+                      </tr>
+                  ))}
+                  <tr>
+                      <td>Other Countries</td>
+                      <td>20%</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
       <div className="mapWrapper">
         <ComposableMap 
-          width={400} 
+          width={350} 
           height={150}
-          viewBox="0 -15 400 150" 
+          viewBox="0 -15 350 150" 
           projection="geoEqualEarth"
           projectionConfig={{
             scale: 60,
@@ -52,13 +75,16 @@ function WorldMap() {
               })
             }
           </Geographies>
+
+          // Canada
+
           <Annotation
               subject={[-100.7, 55]} // Coordinates for Canada
               dx={171} // Adjust this value
               dy={34} // Adjust this value
               connectorProps={{
                   stroke: "#000", // line color
-                  strokeWidth: 0.5, // line thickness
+                  strokeWidth: 2, // line thickness
               }}
           >
          </Annotation> 
@@ -67,13 +93,16 @@ function WorldMap() {
                 <polygon points="0,5 5,5 2.5,0" fill="#000" />
             </svg>
         </Marker>
+
+        //Australia
+
         <Annotation
               subject={[133.7751, -25.2744]} // Coordinates for Canada
               dx={-16} // Adjust this value
               dy={-58} // Adjust this value
               connectorProps={{
                   stroke: "#000", // line color
-                  strokeWidth: 0.5, // line thickness
+                  strokeWidth: 0.3, // line thickness
               }}
           >
          </Annotation> 
@@ -83,13 +112,15 @@ function WorldMap() {
             </svg>
         </Marker>
 
+        // Taiwan
+
         <Annotation
               subject={[120.9605, 23.6978]} // Coordinates for Canada
               dx={-6} // Adjust this value
               dy={2} // Adjust this value
               connectorProps={{
                   stroke: "#000", // line color
-                  strokeWidth: 0.5, // line thickness
+                  strokeWidth: 2, // line thickness
               }}
           >
          </Annotation> 
@@ -98,7 +129,9 @@ function WorldMap() {
                 <polygon points="0,5 5,5 2.5,0" fill="#000" />
             </svg>
         </Marker>
+        
 
+        //UK
 
         <Annotation
               subject={[-3.4359, 55.3781]} // Coordinates for Canada
@@ -106,7 +139,7 @@ function WorldMap() {
               dy={34} // Adjust this value
               connectorProps={{
                   stroke: "#000", // line color
-                  strokeWidth: 0.5, // line thickness
+                  strokeWidth: 2, // line thickness
               }}
           >
          </Annotation> 

@@ -5,7 +5,7 @@ import useContentful from './useContentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import DotChart from './chart';
 import WorldMap from './WorldMap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 
@@ -18,28 +18,42 @@ function HomePage({ setVisibleComponent }) {
     const [currentYear, setCurrentYear] = useState(2019);
     const [Year, setYear] = useState(2019);
     const [selectedButton, setSelectedButton] = useState(2019);
+    const [animateCharts, setAnimateCharts] = useState(true);
+    const [hasClicked, setHasClicked] = useState({2019: false, 2020: false, 2021: false, 2022: false});
 
-    const handleChangeYear = (year) => {
-        const chartSections = document.getElementsByClassName('Chart-section');
-    
+
+    useEffect(() => {
+        setAnimateCharts(true);
+        const timeoutId = setTimeout(() => setAnimateCharts(false), 1000);
+        return () => clearTimeout(timeoutId);
+      }, [currentYear]);
+      
+      const handleChangeYear = (year) => {
         if (year >= 2019 && year <= 2021) {
             setCurrentYear(year);
             setSelectedButton(year);
-        }
-    
-        if (year >= 2019 && year <= 2021) {
             setYear(year);
         }
+        
+        if (hasClicked[year]) {
+            // If the button for this year has already been clicked, we keep animations off
+            setAnimateCharts(false);
+        } else {
+            // If this is the first time the button for this year is clicked, we turn on animations
+            setAnimateCharts(true);
+            setHasClicked({
+              ...hasClicked,
+              [year]: true,
+            });
     
-        // Add or remove the .year-2019 class based on the current year
-        for (let i = 0; i < chartSections.length; i++) {
-            if (year === 2022) {
-                chartSections[i].classList.add('year-2019');
-            } else {
-                chartSections[i].classList.remove('year-2019');
-            }
+            // Turn off animations after a delay
+            setTimeout(() => {
+                setAnimateCharts(false);
+            }, 1000); // delay in milliseconds, adjust to suit your needs
         }
     };
+    
+    
     
 
     const { data: pageData, isLoading, error } = useContentful('homepage'); // replace '1ZpdUq7RMN3A45lmjWV3aT' with your content type id
@@ -113,11 +127,19 @@ function HomePage({ setVisibleComponent }) {
                 </div>*/}
                 <div className="First-Chart-container">
                     <div className="chart-wrapper">
-                        <DotChart people={data[currentYear].chart1} color='#61889e'/>
+                        <DotChart
+                         key={`${currentYear}Chart1`}
+                         people={data[currentYear].chart1} 
+                         color='#61889e' 
+                         animate={animateCharts}/>
                         <div className="chart-title">{data[currentYear].chart1Title}</div>
                     </div>
                     <div className="chart-wrapper">
-                        <DotChart people={data[currentYear].chart2} color='#e6bf01'/>
+                        <DotChart 
+                        key={`${currentYear}Chart2`}
+                        people={data[currentYear].chart2} 
+                        color='#e6bf01'
+                        animate={animateCharts}/>
                         <div className="chart-title">{data[currentYear].chart2Title}</div>
                     </div>
 
@@ -131,7 +153,11 @@ function HomePage({ setVisibleComponent }) {
             {currentYear !== 2022 && (
             <div className="Second-chart-container">
                 <div className="Second-chart-container1"> 
-                        <DotChart people={data2[Year].chart3} color='#e6bf01'/>      
+                        <DotChart
+                        key={`${currentYear}Chart3`} 
+                        people={data2[Year].chart3} 
+                        color='#317654' 
+                        animate={animateCharts}/>      
                         <div className="chart-title">{data2[Year].chart3Title}</div>                     
                 </div> 
                 

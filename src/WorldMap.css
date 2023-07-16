@@ -1,7 +1,38 @@
-.mapWrapper {
-    
+
+.map-container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tableContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.5;  /* This ensures that the tableContainer takes up a lesser width than map */
+    margin-right: -80px;
+    margin-right: -20px;
+ 
+}
+
+.mapWrapper {
+    width: 70%;
+    margin-right: -80px;
+}
+
+
+table {
+    border-collapse: collapse;
     width: 100%;
+    margin: auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px; 
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import './chart.css'
 
-function DotChart({ people, color }) {
+function DotChart({ people, color, animate }) {
   // Calculate the number of dots
+ 
   const numDots = Math.ceil(people / 10000);
-
-  // Create an array of dots
   const dots = Array(numDots).fill(null);
+
+
 
   return (
     <div className="dot-chart">
@@ -17,8 +18,12 @@ function DotChart({ people, color }) {
         {dots.map((dot, index) => (
           <div 
               key={index} 
-              className="dot" 
-              style={{ backgroundColor: color }}  // set the background color here
+              className={`dot ${animate ? 'animate' : ''}`}
+              style={{ 
+                backgroundColor: color,
+                animationDelay: `${index * 0.015}s` 
+              
+              }}  // set the background color here
           />
         ))}
     </div>

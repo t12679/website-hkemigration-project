@@ -1,13 +1,16 @@
 .dot-chart {
-  width: 100%; /* adjust as needed */
+  width: 100%;
 }
-  
+
 .dot {
-  width: 13px; /* adjust as needed */
-  height: 14px; /* adjust as needed */
+  width: 13px;
+  height: 14px;
   border-radius: 50%;
-  background-color: #000; /* adjust as needed */
-  margin: 2px; /* adjust as needed */
+  background-color: #000;
+  margin: 2px;
+  opacity: 0;
+  transform: translateY(-50px); /* start 50px above the original position */
+  animation: dotDrop 1s ease-in-out forwards; /* new animation */
 }
 
 .dot-chart-number {
@@ -22,6 +25,13 @@
   transform: rotate(180deg);
   transform-origin: center;
   justify-content: flex-end;
-
 }
-  
+
+/* new keyframes animation */
+@keyframes dotDrop {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+
+

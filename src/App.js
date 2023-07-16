@@ -92,7 +92,7 @@ function App() {
 
 
   const renderFooterButtons = () => (
-    <nav>
+    <nav className='nav-footer'>
       <button className="about-button" onClick={() => setVisibleComponent('About')}>About</button>
       <button onClick={() => setVisibleComponent('Survey')}>Take the survey</button>
       <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>Take the interview</button>

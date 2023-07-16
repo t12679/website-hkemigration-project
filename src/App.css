@@ -32,7 +32,7 @@ h1 {
 }
 
 .title:hover {
-  color: #007BFF;
+  text-decoration: underline;
 }
 
 nav {
@@ -81,9 +81,24 @@ nav button {
   
 }
 
-nav button:hover {
-  color: #007BFF;
+.nav-footer button {
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  
 }
+
+.nav-footer button:hover {
+  text-decoration: underline;
+}
+
+
+nav button:hover {
+  text-decoration: underline;
+}
+
 
 .dropdown-about {
   position: absolute;
@@ -176,5 +191,5 @@ footer {
 }
 
 .title-footer:hover {
-  color: #007BFF;
+  text-decoration: underline;
 }
