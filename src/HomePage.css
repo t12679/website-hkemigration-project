@@ -288,6 +288,34 @@
  }
 
 
+
+ .Homepage5{
+    background-color: white;
+    width: 100%;
+    color: black;
+    padding: 20px 0 40px 0;
+ }
+
+
+ .Homepage5-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%; 
+    margin: auto; 
+    font-size: 30px;
+ }
+
+
+ .Homepage5-content-heading{
+    font-size: 30px;
+ }
+
+ .Homepage5-content-p{
+    font-size: 20px;
+ }
+
+
   .Learn-more-button{
     display: inline-block;
     padding: 10px 20px;

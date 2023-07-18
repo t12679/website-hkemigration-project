@@ -224,9 +224,7 @@ function HomePage({ setVisibleComponent }) {
                 <div className='MapSource'>
                         Source:----
                     </div>
-                
-            </div>
-            
+            </div>     
         </div>
  
 
@@ -236,17 +234,28 @@ function HomePage({ setVisibleComponent }) {
                     <ReactMarkdown>{entry && entry.fields.Homepage4Content}</ReactMarkdown>
                     
                 </div>
+            </div>
+        </div>
+
+
+        <div className = "Homepage5">
+            <div className="Homepage5-content">
+                <div className="Homepage5-content-p">
+                    <ReactMarkdown>{entry && entry.fields.Homepage5Content}</ReactMarkdown>
+                    
+                </div>
                 <button className = "Learn-more-button" onClick={() => setVisibleComponent('Project')}>Learn More</button>
             </div>
         </div>
+
     
         <div className="Homepage-conclusion">
             <div className="conclusion-content">
                 <div className="Homepage-heading4">
-                    <ReactMarkdown>{ entry && entry.fields.Homepage5Content }</ReactMarkdown> 
+                    <ReactMarkdown>{ entry && entry.fields.Homepage6Content1 }</ReactMarkdown> 
                 </div>
                 <div className="Homepage-heading4">
-                    <ReactMarkdown>{ entry && entry.fields.Homepage6Content }</ReactMarkdown>
+                    <ReactMarkdown>{ entry && entry.fields.Homepage6Content2 }</ReactMarkdown>
                 </div>
             </div>
         </div>
