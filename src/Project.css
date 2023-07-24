@@ -1,6 +1,6 @@
-.project-content {
+.Project {
     text-align: center;
-    max-width: 70%;
+    
     margin: auto;
     text-align: left;
     padding-top: 20px;
@@ -12,5 +12,105 @@
     align-items: center;
     justify-content: center;
     font-size: 35px;
+}
+
+
+
+.ProjectHeading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+
+.ProjectHeading-Container{
+  max-width: 80%;
+  font-size: 17px;
+}
+
+.ProjectPreliminaryConclusions{
+  background-color: rgba(49,118,84,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ProjectPreliminaryConclusions-Container{
+  max-width: 80%;
+  font-size: 17px;
+  color: white;
+
+}
+
+.ProjectCharts {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  perspective: 1000px;
+  padding: 20px;
+  margin: auto;
+}
+
+.ProjectChart {
+  width: 450px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 1s ease;
+  position: relative;
+  transform: rotateY(45deg) scale(.6);
+  opacity: 0.5;
+  margin-right: -25%;
+  margin-left: -25%;
+  z-index: 0;
+}
+
+.ProjectChart.active {
+  transform: rotateY(0) scale(1);
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.ProjectButtonContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: white;
+}
+
+.ProjectButtonContainer button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.ProjectButtonContainer button:hover {
+  background-color: #0056b3;
+}
+
+
+.ProjectContent1{
+  background-color: rgba(49,118,84,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.ProjectContent1-Container{
+  background-color: rgba(49,118,84,1);
+  max-width: 80%;
+  color: white;
+  font-size: 17px;
 }
   

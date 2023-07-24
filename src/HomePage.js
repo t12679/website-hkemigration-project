@@ -7,7 +7,12 @@ import DotChart from './chart';
 import WorldMap from './WorldMap';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-
+import graph1 from './images/Pension Pots.png'
+import graph2 from './images/Checking Out.png'
+import diagram from './images/Diagram.png'
+import hkimmigration1 from './images/hk immigration1.png'
+import hkimmigration2 from './images/hk immigration2.png'
+import hkimmigration3 from './images/hk immigration3.avif'
 
 
 
@@ -81,6 +86,7 @@ function HomePage({ setVisibleComponent }) {
             chart2Title: item.fields.Chart2Title,
             chart1LegendLabel: item.fields.Chart1LegendLabel,
             chart2LegendLabel: item.fields.Chart2LegendLabel,
+            textAboveChart3: item.fields.textAboveChart3,
         };
         return acc;
     }, {});
@@ -149,7 +155,11 @@ function HomePage({ setVisibleComponent }) {
                     target="_blank" rel="noopener noreferrer">CUHK Communications and Public Relations Office</a>
                 </div>
             </div>
-            
+
+
+            <div className='TextAboveChart3'><ReactMarkdown>{data[currentYear].textAboveChart3}</ReactMarkdown></div>
+
+
             {currentYear !== 2022 && (
             <div className="Second-chart-container">
                 <div className="Second-chart-container1"> 
@@ -158,7 +168,7 @@ function HomePage({ setVisibleComponent }) {
                         people={data2[Year].chart3} 
                         color='#317654' 
                         animate={animateCharts}/>      
-                        <div className="chart-title">{data2[Year].chart3Title}</div>                     
+                        <div className="chart-title">{data2[Year].chart3Title}({currentYear+1} - {currentYear})</div>                     
                 </div> 
                 
             </div>
@@ -196,7 +206,13 @@ function HomePage({ setVisibleComponent }) {
             </button>*/}
         </div>
 
-
+        
+        <div className="Graph-Diagram-Container">
+            <div className='GraphContainer'>
+                <img src={graph1} alt="graph1" className="graph" />
+                <img src={graph2} alt="graph2" className="graph" />
+            </div>
+        </div>
 
         <div className = "Homepage1-1">
             <div className = "Homepage1-content">
@@ -212,6 +228,8 @@ function HomePage({ setVisibleComponent }) {
             </div>
         </div>
 
+        
+
         <div className = "Homepage3">
             <div className="Homepage3-content">
                 <div className="Homepage3-heading">
@@ -226,7 +244,21 @@ function HomePage({ setVisibleComponent }) {
                     </div>
             </div>     
         </div>
- 
+    
+    
+        <div className="image-gallery">
+            <img src={hkimmigration1} alt="hkimmigration" className="hkimmigration" />
+            <img src={hkimmigration2} alt="hkimmigration" className="hkimmigration" />
+            <img src={hkimmigration3} alt="hkimmigration" className="hkimmigration" />
+        </div>
+
+
+        <div className="DiagramContainer">
+            <img src={diagram} alt="diagram" className="diagram" />
+        </div>
+    
+
+        
 
         <div className = "Homepage4">
             <div className="Homepage4-content">
@@ -236,6 +268,7 @@ function HomePage({ setVisibleComponent }) {
                 </div>
             </div>
         </div>
+
 
 
         <div className = "Homepage5">

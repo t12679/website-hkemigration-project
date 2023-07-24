@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 30px;
+    
     
 }
     
@@ -41,7 +41,7 @@
     justify-content: flex-end; /* new */
 
     margin-bottom: 50px;
-    height: 550px; 
+    height: 600px; 
     position: relative;
 
 }
@@ -180,9 +180,19 @@
 }
 
 
+.TextAboveChart3{
+    margin-top: 50px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+    text-align: center;
+
+}
+
+
 .Second-chart-container{
     order: 4;
-    height: 200px;
+    height: 150px;
     display: flex;
     justify-content: flex-end;
     width: 500px;
@@ -196,6 +206,48 @@
     order: 5;
     margin-top: 30px;
     font-size: 10px;
+}
+
+
+.Graph-Diagram-Container{
+    background-color:  rgba(49,118,84,1);
+    padding: 10px;
+    margin-top: 30px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* add a shadow to the container */
+}
+
+.GraphContainer{
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+}
+
+.graph{
+    width: 500px;
+    border-radius: 10px; /* round the corners of the images */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* add a shadow to each image */
+    transition: transform 0.2s; /* smooth out the hover effect */
+}
+
+.graph:hover {
+    transform: scale(1.05); /* scale up the image on hover */
+}
+
+
+.DiagramContainer{
+    margin-top: 35px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.diagram{
+    width: 700px;
 }
 
 
@@ -286,6 +338,57 @@
  .Homepage4-content-p{
     font-size: 20px;
  }
+
+
+ .image-gallery{
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 20px;
+    background: rgba(49,118,84,1);  /* add a light grey background */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
+    margin: auto; 
+ 
+}
+
+.hkimmigration{
+    width: 400px;
+    border-radius: 10px; /* round the corners of the images */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* add a shadow to each image */
+    transition: transform 0.2s; /* smooth out the hover effect */
+}
+
+
+@media (min-width:2000px){
+    .image-gallery{
+        display: flex;
+        justify-content: space-between;
+        overflow-x: auto;
+        padding: 20px;
+        background: rgba(49,118,84,1);  /* add a light grey background */
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
+        padding-left: 100px;
+        padding-right: 100px;
+    
+    }
+    .hkimmigration{
+        width: 500px;
+        border-radius: 10px; /* round the corners of the images */
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* add a shadow to each image */
+        transition: transform 0.2s; /* smooth out the hover effect */
+        
+    }
+    
+}
+
+
+.hkimmigration:hover {
+    transform: scale(1.05); /* scale up the image on hover */
+}
+
+.hkimmigration:last-child {
+    margin-right: 0;
+}
 
 
 
