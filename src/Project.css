@@ -28,7 +28,25 @@
 
 .ProjectHeading-Container{
   max-width: 80%;
-  font-size: 17px;
+  font-size: 19px;
+}
+
+
+.WordCloud{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.WordCloud-Container{
+  text-align: center;
+}
+
+.WordCloudImage{
+  width: 80%;
+
 }
 
 .ProjectPreliminaryConclusions{
@@ -37,36 +55,96 @@
   align-items: center;
   justify-content: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .ProjectPreliminaryConclusions-Container{
   max-width: 80%;
-  font-size: 17px;
+  font-size: 19px;
   color: white;
 
 }
 
 .ProjectCharts {
+  width: 95vw;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
   perspective: 1000px;
-  padding: 20px;
+  padding-top: 40px;
   margin: auto;
 }
 
+
+
 .ProjectChart {
-  width: 450px;
+  width: 650px;
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 1s ease;
   position: relative;
-  transform: rotateY(45deg) scale(.6);
+  transform: rotateY(10deg) scale(.4);
   opacity: 0.5;
-  margin-right: -25%;
-  margin-left: -25%;
+  margin-right: -35%;
+  margin-left: -35%;
   z-index: 0;
+}
+
+
+@media (min-width: 1700px) {
+  .ProjectCharts {
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    perspective: 1000px;
+    padding-top: 40px;
+    margin: auto;
+  }
+  
+  
+  
+  .ProjectChart {
+    width: 750px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease;
+    position: relative;
+    transform: rotateY(10deg) scale(.4);
+    opacity: 0.5;
+    margin-right: -32%;
+    margin-left: -32%;
+    z-index: 0;
+  }
+}
+
+
+
+@media (min-width: 2250px) {
+  .ProjectCharts {
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    perspective: 1000px;
+    padding-top: 40px;
+    margin: auto;
+  }
+  
+  
+  
+  .ProjectChart {
+    width: 850px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease;
+    position: relative;
+    transform: rotateY(10deg) scale(.4);
+    opacity: 0.5;
+    margin-right: -27%;
+    margin-left: -27%;
+    z-index: 0;
+  }
 }
 
 .ProjectChart.active {
@@ -84,12 +162,13 @@
 }
 
 .ProjectButtonContainer button {
-  background-color: #007BFF;
+  background-color: rgba(49,118,84,1);
   color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .ProjectButtonContainer button:hover {
@@ -104,6 +183,7 @@
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  
 
 }
 
@@ -111,6 +191,6 @@
   background-color: rgba(49,118,84,1);
   max-width: 80%;
   color: white;
-  font-size: 17px;
+  font-size: 19px;
 }
   

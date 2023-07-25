@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import ProjectChart1 from './images/Proejct Chart 1.png'
 import ProjectChart2 from './images/Proejct Chart 2.png'
 import ProjectChart3 from './images/Proejct Chart 3.png'
+import WordCloud from './images/Word Cloud.png'
 
 
 const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
@@ -14,7 +15,7 @@ function Project() {
   const [activeIndex, setActiveIndex] = useState(0);
   const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
 
-  function goToPrevSlide() {
+  function goToNextSlide() {
     let index = activeIndex;
     let slidesLength = charts.length;
 
@@ -27,7 +28,7 @@ function Project() {
     setActiveIndex(index);
   }
 
-  function goToNextSlide() {
+  function goToPrevSlide() {
     let index = activeIndex;
     let slidesLength = charts.length - 1;
 
@@ -62,6 +63,14 @@ function Project() {
       <div className='ProjectHeading'>
         <div className='ProjectHeading-Container'>
           <ReactMarkdown>{entry && entry.fields.ProjectHeading}</ReactMarkdown>
+        </div>
+      </div>
+
+
+      <div className='WordCloud'>
+        <div className='WordCloud-Container'>
+          <ReactMarkdown>{entry && entry.fields.WordCloud}</ReactMarkdown>
+          <img src={WordCloud} alt="WordCloudImage" className="WordCloudImage" />
         </div>
       </div>
 
