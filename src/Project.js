@@ -12,7 +12,7 @@ const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
 
 
 function Project() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
   const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
 
   function goToNextSlide() {

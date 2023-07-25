@@ -15,8 +15,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    
-    
 }
     
 
@@ -250,6 +248,14 @@
     width: 700px;
 }
 
+
+.GraphInfo{
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    color: white;
+}
 
 .Homepage2{
     background-color: rgba(49,118,84,255);

@@ -206,8 +206,11 @@ function HomePage({ setVisibleComponent }) {
             </button>*/}
         </div>
 
-        
+
         <div className="Graph-Diagram-Container">
+            <div className = "GraphInfo">
+                 <ReactMarkdown>{entry && entry.fields.GraphInfo}</ReactMarkdown>
+            </div>
             <div className='GraphContainer'>
                 <img src={graph1} alt="graph1" className="graph" />
                 <img src={graph2} alt="graph2" className="graph" />
