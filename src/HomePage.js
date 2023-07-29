@@ -131,7 +131,14 @@ function HomePage({ setVisibleComponent }) {
                         <div className="legend-label">{data[currentYear].chart2LegendLabel}</div>
                     </div>
                 </div>*/}
+
+<               div className='ChartNote'>
+                    Note: One dot represents 10,000 people
+                </div>
+
+                
                 <div className="First-Chart-container">
+                    
                     <div className="chart-wrapper">
                         <DotChart
                          key={`${currentYear}Chart1`}
@@ -225,8 +232,14 @@ function HomePage({ setVisibleComponent }) {
         
 
         <div className = "Homepage2">
+            <div className= "Homepage2-heading">
+                <ReactMarkdown>{entry && entry.fields.Homepage2Heading}</ReactMarkdown>
+            </div>
             <div className = "Homepage2-content">
                  <ReactMarkdown>{entry && entry.fields.homepage2Content}</ReactMarkdown>
+                 <div className='Homepage2-note'>
+                    <ReactMarkdown>{entry && entry.fields.Homepage2Note}</ReactMarkdown>
+                 </div>
                  <button className = "Story-button" onClick={() => setVisibleComponent('About')}>Read our full story</button>
             </div>
         </div>

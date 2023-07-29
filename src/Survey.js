@@ -5,7 +5,6 @@ function Survey() {
   return (
     <div>
       
-      <DotChart people={3119214}/>
       
         
     </div>

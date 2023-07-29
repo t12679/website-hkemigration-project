@@ -39,7 +39,7 @@
     justify-content: flex-end; /* new */
 
     margin-bottom: 50px;
-    height: 600px; 
+    height: 650px; 
     position: relative;
 
 }
@@ -72,6 +72,12 @@
     align-items: flex-end;
     width: 70%; /* or adjust as necessary */
     
+}
+
+
+.ChartNote{
+    padding: 20px;
+    order: 0;
 }
 
 .year-2019.Chart-section {
@@ -262,19 +268,36 @@
     width: 100%;
 }
 
+.Homepage2-heading {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+    color: white;
+    font-size: 20px;
+}
+
 .Homepage2-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 70%; 
     margin: auto; 
-    padding: 40px;
+    padding-bottom: 40px;
     color:white;
     font-size: 23px;
 }
 
 .Homepage2-content p {
     margin-bottom: 40px;
+ }
+
+
+ .Homepage2-note{
+
+    font-size: 13px;
  }
 
  .Homepage3{
