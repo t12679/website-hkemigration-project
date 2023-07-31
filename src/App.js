@@ -56,7 +56,7 @@ function App() {
 
   const renderNavigation = () => (
     <nav>
-      <div 
+      <div className='dropdown-buttons' 
         onMouseEnter={() => setShowDropdownAbout(true)}
         onMouseLeave={() => setShowDropdownAbout(false)}
       >
@@ -70,7 +70,7 @@ function App() {
         )}
       </div>
       <button onClick={() => setVisibleComponent('Survey')}>Take the survey</button>
-        <div 
+        <div className='dropdown-buttons' 
           onMouseEnter={() => setShowDropdownInterview(true)}
           onMouseLeave={() => setShowDropdownInterview(false)}
         >
@@ -84,9 +84,11 @@ function App() {
         )}
       </div>
       
-      <button onClick={() => setVisibleComponent('Data')}>Data</button>
-
-      <LanguageSwitcher className="LanguageSwitcher" useDropdown={true} />
+      <button onClick={() => setVisibleComponent('Data')}>Data and Preliminary Results</button>
+      
+      <div className='dropdown-buttons'>
+        <LanguageSwitcher className="LanguageSwitcher" useDropdown={true} />
+      </div>
     </nav>
   )
 
@@ -96,7 +98,7 @@ function App() {
       <button className="about-button" onClick={() => setVisibleComponent('About')}>About</button>
       <button onClick={() => setVisibleComponent('Survey')}>Take the survey</button>
       <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>Take the interview</button>
-      <button onClick={() => setVisibleComponent('Data')}>Data</button>
+      <button onClick={() => setVisibleComponent('Data')}>Data and Preliminary Results</button>
       <LanguageSwitcher className="LanguageSwitcher" useDropdown={false} />
     </nav>
   )

@@ -16,7 +16,7 @@ function LanguageSwitcher({className, useDropdown}) {
 
   if (useDropdown) {
     return (
-      <div 
+      <div className='dropdown-buttons' 
         onMouseEnter={() => setShowDropdown(true)}
         onMouseLeave={() => setShowDropdown(false)}
       >

@@ -1,0 +1,16 @@
+.About{
+    display: flex;
+    align-items:center;
+    text-align: center;
+    margin: auto;
+    text-align: left;
+    flex-direction: column;
+    padding-top: 20px；
+
+}
+
+.AboutContent1{
+    width: 70%;
+    font-size: 18px;
+    padding-top: 20px;
+}

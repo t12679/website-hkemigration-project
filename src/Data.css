@@ -1,0 +1,33 @@
+.ProjectCharts-Data {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    perspective: 1000px;
+    padding-top:  60px;
+    margin: auto;
+    background-color: rgba(49,118,84,1) ;
+  }
+  
+  
+.ProjectButtonContainer-Data {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-color: rgba(49,118,84,1);
+  }
+  
+  .ProjectButtonContainer-Data button {
+    background-color:white;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .ProjectButtonContainer-Data button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -38,7 +38,7 @@ h1 {
 nav {
   display: flex;
   gap: 20px;
-  height: 15px;
+  height: 45px;
   padding-right: 20px;
   position: relative;
   font-size: 15px;
@@ -48,29 +48,30 @@ nav {
 
 @media (max-width: 1370px) {  /* adjust as needed */
   header nav {
-    margin-top: -30px;
+    margin-top: -10px;
   }
+  
 }
 
-@media (max-width: 600px) {  /* adjust as needed */
-  header nav {
-    margin-top: -100px;
-  }
-}
-@media (max-width: 600px) {  /* adjust as needed */
+
+@media (max-width: 930px) {  /* adjust as needed */
   header nav {
     display: none;
   }
 }
 
-@media (min-width: 600px) {  /* adjust as needed */
+@media (min-width: 930px) {  /* adjust as needed */
   header nav {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-
+.dropdown-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 nav button {
   color: white;
@@ -80,6 +81,7 @@ nav button {
   font-size: 1em;
   
 }
+
 
 .nav-footer button {
   color: black;
@@ -102,14 +104,26 @@ nav button:hover {
 
 .dropdown-about {
   position: absolute;
+  top:40px;
   display: flex;
   flex-direction: column;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 10px;
-  border-radius: 4px;
+ 
   z-index: 1;
 }
+
+
+@media (max-width: 1533px){
+  .dropdown-about{
+    top:20px;
+  }
+  
+  }
+  
+
+
 
 .dropdown-about button {
   background-color: inherit;  
@@ -131,14 +145,23 @@ nav button:hover {
 
 .dropdown-interview {
   position: absolute;
+  top:40px;
   display: flex;
   flex-direction: column;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+
 }
 
+@media (max-width: 1533px){
+  .dropdown-interview{
+    top:20px;
+  }
+  
+  }
+  
 
 
 .dropdown-interview button {
@@ -177,11 +200,7 @@ footer {
   padding: 25px;
 }
 
-@media (max-width: 1050px) {  
-  footer nav {
-    margin-bottom: 30px;
-  }
-}
+
 
 
 
