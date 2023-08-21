@@ -11,7 +11,7 @@ import WordCloud from './images/Word Cloud.png'
 const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
 
 
-function Project() {
+function Project({ currentLanguage }) {
   const [activeIndex, setActiveIndex] = useState(1);
   const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
 
@@ -40,7 +40,8 @@ function Project() {
 
     setActiveIndex(index);
   }
-  const { data: Pagedata, isLoading, error } = useContentful('Project');
+
+  const { data: Pagedata, isLoading, error } = useContentful('Project', currentLanguage);
 
 
   if (isLoading) {

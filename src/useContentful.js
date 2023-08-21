@@ -8,13 +8,13 @@ const client = createClient({
   host:"preview.contentful.com"
 });
 
-const useContentful = (contentType) => {
+const useContentful = (contentType, locale) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    client.getEntries({ content_type: contentType })
+    client.getEntries({ content_type: contentType, locale: locale })
       .then((response) => {
         setData(response.items); // it will return an array of entries
         setIsLoading(false);
@@ -24,7 +24,7 @@ const useContentful = (contentType) => {
         setError(err);
         setIsLoading(false);
       });
-  }, [contentType]);
+  }, [contentType, locale]);
 
   return { data, isLoading, error };
 };

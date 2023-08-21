@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import HomePage from './HomePage';
 import About from './About';
 import Project from './Project';
@@ -13,25 +12,33 @@ import English from './English';
 import Data from './Data';
 import './App.css';
 import './i18n';
+import ReactMarkdown from 'react-markdown';
 import LanguageSwitcher from './LanguageSwitcher';
+import useContentful from './useContentful';
 
 
 
 
 
 function App() {
-  const [visibleComponent, setVisibleComponent] = useState('');
+  const [visibleComponent, setVisibleComponent] = useState('HomePage');
+  const [currentLanguage, setCurrentLanguage] = useState('en-US');
   const [showDropdownAbout, setShowDropdownAbout] = useState(false);
   const [showDropdownInterview, setShowDropdownInterview] = useState(false);
+  const { data: Pagedata, isLoading, error } = useContentful('app', currentLanguage);
+  const entry = Pagedata ? Pagedata[0] : null;
+  const handleLanguageChange = (language) => {
+    setCurrentLanguage(language);
+  };
 
   const renderComponent = () => {
     switch(visibleComponent) {
       case 'HomePage':
-        return <HomePage setVisibleComponent={setVisibleComponent} />
+        return <HomePage setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'About':
-        return <About setVisibleComponent={setVisibleComponent} />
+        return <About setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Project':
-        return <Project setVisibleComponent={setVisibleComponent} />
+        return <Project setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Team':
         return <Team setVisibleComponent={setVisibleComponent} />
       case 'Contact Us':
@@ -47,11 +54,13 @@ function App() {
       case 'English':
         return <English setVisibleComponent={setVisibleComponent} />
       case 'Data':
-        return <Data setVisibleComponent={setVisibleComponent} />
+        return <Data setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       default:
-        return <HomePage setVisibleComponent={setVisibleComponent} />
+        return <HomePage setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
     }
   }
+
+  
   
 
   const renderNavigation = () => (
@@ -60,34 +69,39 @@ function App() {
         onMouseEnter={() => setShowDropdownAbout(true)}
         onMouseLeave={() => setShowDropdownAbout(false)}
       >
-        <button className="about-button" onClick={() => setVisibleComponent('About')}>About</button>
+        <button className="about-button" onClick={() => setVisibleComponent('About')}>{entry && entry.fields.navAbout}</button>
         {showDropdownAbout && (
-          <div className="dropdown-about">
-            <button onClick={() => setVisibleComponent('Project')}>Project</button>
-            <button onClick={() => setVisibleComponent('Team')}>Team</button>
-            <button onClick={() => setVisibleComponent('Contact Us')}>Contact Us</button>
+          <div className={currentLanguage === 'en-US' ? 'dropdown-about' : 'dropdown-aboutCN'}>
+            <button onClick={() => setVisibleComponent('Project')}>{entry && entry.fields.navProject}</button>
+            <button onClick={() => setVisibleComponent('Team')}>{entry && entry.fields.navTeam}</button>
+            <button onClick={() => setVisibleComponent('Contact Us')}>{entry && entry.fields.navContact}</button>
           </div>
         )}
       </div>
-      <button onClick={() => setVisibleComponent('Survey')}>Take the survey</button>
+      <button onClick={() => setVisibleComponent('Survey')}>{entry && entry.fields.takeSurvey}</button>
         <div className='dropdown-buttons' 
           onMouseEnter={() => setShowDropdownInterview(true)}
           onMouseLeave={() => setShowDropdownInterview(false)}
         >
-      <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>Take the interview</button>
+      <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>{entry && entry.fields.takeInterview}</button>
       {showDropdownInterview && (
-          <div className="dropdown-interview">
-            <button onClick={() => setVisibleComponent('Cantonese')}>Cantonese</button>
-            <button onClick={() => setVisibleComponent('Mandarin')}>Mandarin</button>
-            <button onClick={() => setVisibleComponent('English')}>English</button>
+          <div className={currentLanguage === 'en-US' ? 'dropdown-interview' : 'dropdown-interviewCN'}>
+            <button onClick={() => setVisibleComponent('Cantonese')}>{entry && entry.fields.cantonese}</button>
+            <button onClick={() => setVisibleComponent('Mandarin')}>{entry && entry.fields.mandarin}</button>
+            <button onClick={() => setVisibleComponent('English')}>{entry && entry.fields.english}</button>
           </div>
         )}
       </div>
       
-      <button onClick={() => setVisibleComponent('Data')}>Data and Preliminary Results</button>
+      <button onClick={() => setVisibleComponent('Data')}>{entry && entry.fields.dataAndPreliminaryResults}</button>
       
       <div className='dropdown-buttons'>
-        <LanguageSwitcher className="LanguageSwitcher" useDropdown={true} />
+        <LanguageSwitcher 
+          className="LanguageSwitcher" 
+          useDropdown={true} 
+          currentLanguage={currentLanguage} // Pass the current language to LanguageSwitcher
+          setCurrentLanguage={setCurrentLanguage} // Pass the setter to LanguageSwitcher
+        />
       </div>
     </nav>
   )
@@ -95,11 +109,15 @@ function App() {
 
   const renderFooterButtons = () => (
     <nav className='nav-footer'>
-      <button className="about-button" onClick={() => setVisibleComponent('About')}>About</button>
-      <button onClick={() => setVisibleComponent('Survey')}>Take the survey</button>
-      <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>Take the interview</button>
-      <button onClick={() => setVisibleComponent('Data')}>Data and Preliminary Results</button>
-      <LanguageSwitcher className="LanguageSwitcher" useDropdown={false} />
+      <button className="about-button" onClick={() => setVisibleComponent('About')}>{entry && entry.fields.navAbout}</button>
+      <button onClick={() => setVisibleComponent('Survey')}>{entry && entry.fields.takeSurvey}</button>
+      <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>{entry && entry.fields.takeInterview}</button>
+      <button onClick={() => setVisibleComponent('Data')}>{entry && entry.fields.dataAndPreliminaryResults}</button>
+      <LanguageSwitcher 
+          className="LanguageSwitcher" 
+          currentLanguage={currentLanguage} // Pass the current language to LanguageSwitcher
+          setCurrentLanguage={setCurrentLanguage} // Pass the setter to LanguageSwitcher
+        />
     </nav>
   )
   
@@ -113,7 +131,7 @@ function App() {
       <header>
         
         <h1 className="title" onClick={() => setVisibleComponent('HomePage')}>
-          Emigration and Thoughts of Emigration From Hong Kong
+        <ReactMarkdown>{entry && entry.fields.websiteName}</ReactMarkdown>
         </h1>
         {renderNavigation()}
       </header>
@@ -122,7 +140,7 @@ function App() {
       </main>
       <footer>
         <div className="title-footer" onClick={() => setVisibleComponent('HomePage')}>
-          Emigration and Thoughts of Emigration From Hong Kong
+        {entry && entry.fields.websiteName}
         </div>
         {renderFooterButtons()}
       </footer>

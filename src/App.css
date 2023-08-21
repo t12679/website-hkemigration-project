@@ -16,7 +16,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 10px;
+  padding-left: 30px;
   font-size: 12px;
   background-color: rgba(49,118,84,1);
   color: white;
@@ -45,6 +46,7 @@ nav {
   padding-left:50px;
   
 }
+
 
 @media (max-width: 1370px) {  /* adjust as needed */
   header nav {
@@ -110,7 +112,17 @@ nav button:hover {
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 10px;
- 
+  z-index: 1;
+}
+
+.dropdown-aboutCN {
+  position: absolute;
+  top:40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 10px;
   z-index: 1;
 }
 
@@ -119,17 +131,18 @@ nav button:hover {
   .dropdown-about{
     top:20px;
   }
-  
   }
   
 
 
 
-.dropdown-about button {
+.dropdown-about button,
+.dropdown-aboutCN button{
   background-color: inherit;  
   color: black;
   padding: 12px 16px;
   text-decoration: none;
+  word-break: keep-all;
   display: block;
   width: 100%;
   text-align: left;
@@ -138,12 +151,17 @@ nav button:hover {
 }
 
 
-.dropdown-about button:hover {
+
+
+
+.dropdown-about button:hover
+.dropdown-about button:hover{
   background-color: #f1f1f1;
 }
 
 
-.dropdown-interview {
+.dropdown-interview,
+.dropdown-interviewCN {
   position: absolute;
   top:40px;
   display: flex;
@@ -164,7 +182,8 @@ nav button:hover {
   
 
 
-.dropdown-interview button {
+.dropdown-interview button, 
+.dropdown-interviewCN button{
   background-color: inherit;
   color: black;
   padding: 12px 16px;
@@ -176,7 +195,8 @@ nav button:hover {
   cursor: pointer;
 }
 
-.dropdown-interview button:hover {
+.dropdown-interview button:hover,
+.dropdown-interviewCN button:hover{
   background-color: #f1f1f1;
 }
 

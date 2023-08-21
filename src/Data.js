@@ -8,7 +8,7 @@ import ProjectChart2 from './images/Proejct Chart 2.png'
 import ProjectChart3 from './images/Proejct Chart 3.png'
 import './Data.css';
 
-function Data() {
+function Data({currentLanguage}) {
 
   const [activeIndex, setActiveIndex] = useState(1);
   const charts = [ProjectChart1, ProjectChart2, ProjectChart3];
@@ -38,7 +38,7 @@ function Data() {
 
     setActiveIndex(index);
   }
-  const { data: Pagedata, isLoading, error } = useContentful('Project');
+  const { data: Pagedata, isLoading, error } = useContentful('Project', currentLanguage);
 
 
   if (isLoading) {

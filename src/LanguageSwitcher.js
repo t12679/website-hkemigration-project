@@ -1,34 +1,30 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import './LanguageSwitcher.css'
+import './LanguageSwitcher.css';
 
-function LanguageSwitcher({className, useDropdown}) {
-  const { i18n } = useTranslation();
+function LanguageSwitcher({ className, useDropdown, currentLanguage, setCurrentLanguage }) {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language);
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === 'en-US' ? 'zh-Hant-HK' : 'en-US';
+    setCurrentLanguage(newLanguage); // Use the passed-down setCurrentLanguage to update language
   };
 
   if (useDropdown) {
     return (
-      <div className='dropdown-buttons' 
+      <div
+        className='dropdown-buttons'
         onMouseEnter={() => setShowDropdown(true)}
         onMouseLeave={() => setShowDropdown(false)}
       >
-      <div className = "dropdown-arrow">
-        <button className="language-button" onClick={toggleDropdown}>
-          {i18n.language === 'en' ? 'English' : '中文'}     
-        </button>
-      </div>
+        <div className="dropdown-arrow">
+          <button className="language-button" onClick={toggleLanguage}>
+            {currentLanguage === 'en-US' ? 'English' : '中文'}
+          </button>
+        </div>
         {showDropdown && (
           <div className="dropdown-language">
-            <button onClick={() => changeLanguage(i18n.language === 'en' ? 'zh' : 'en')}>
-              {i18n.language === 'en' ? '中文' : 'English'}
+            <button onClick={toggleLanguage}>
+              {currentLanguage === 'en-US' ? '中文' : 'English'}
             </button>
           </div>
         )}
@@ -36,8 +32,8 @@ function LanguageSwitcher({className, useDropdown}) {
     );
   } else {
     return (
-      <button className={`language-button ${className}`} onClick={() => changeLanguage(i18n.language === 'en' ? 'zh' : 'en')}>
-        {i18n.language === 'en' ? 'English' : '中文'}     
+      <button className={`language-button ${className}`} onClick={toggleLanguage}>
+        {currentLanguage === 'en-US' ? 'English' : '中文'}
       </button>
     );
   }

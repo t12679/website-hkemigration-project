@@ -18,7 +18,7 @@ import hkimmigration3 from './images/hk immigration3.avif'
 
 
 
-function HomePage({ setVisibleComponent }) {
+function HomePage({ setVisibleComponent, currentLanguage }) {
     const { t } = useTranslation();
     const [currentYear, setCurrentYear] = useState(2019);
     const [Year, setYear] = useState(2019);
@@ -61,9 +61,9 @@ function HomePage({ setVisibleComponent }) {
     
     
 
-    const { data: pageData, isLoading, error } = useContentful('homepage'); // replace '1ZpdUq7RMN3A45lmjWV3aT' with your content type id
-    const { data: chartData, isLoading: chartIsLoading, error: chartError } = useContentful('ChartData'); 
-    const { data: chartData2, isLoading: chartData2IsLoading, error: chartData2Error } = useContentful('Chart2Data');
+    const { data: pageData, isLoading, error } = useContentful('homepage', currentLanguage); // replace '1ZpdUq7RMN3A45lmjWV3aT' with your content type id
+    const { data: chartData, isLoading: chartIsLoading, error: chartError } = useContentful('ChartData', currentLanguage); 
+    const { data: chartData2, isLoading: chartData2IsLoading, error: chartData2Error } = useContentful('Chart2Data', currentLanguage);
 
     if (isLoading || chartIsLoading || chartData2IsLoading) {
         return <div></div>;
@@ -87,6 +87,7 @@ function HomePage({ setVisibleComponent }) {
             chart1LegendLabel: item.fields.Chart1LegendLabel,
             chart2LegendLabel: item.fields.Chart2LegendLabel,
             textAboveChart3: item.fields.textAboveChart3,
+            dotNote: item.fields.dotNote,
         };
         return acc;
     }, {});
@@ -133,7 +134,7 @@ function HomePage({ setVisibleComponent }) {
                 </div>*/}
 
 <               div className='ChartNote'>
-                    Note: One dot represents 10,000 people
+                    {data[currentYear].dotNote}
                 </div>
 
                 
@@ -240,7 +241,7 @@ function HomePage({ setVisibleComponent }) {
                  <div className='Homepage2-note'>
                     <ReactMarkdown>{entry && entry.fields.Homepage2Note}</ReactMarkdown>
                  </div>
-                 <button className = "Story-button" onClick={() => setVisibleComponent('About')}>Read our full story</button>
+                 <button className = "Story-button" onClick={() => setVisibleComponent('About')}>{entry && entry.fields.Homepage2ContentButton}</button>
             </div>
         </div>
 
@@ -268,9 +269,18 @@ function HomePage({ setVisibleComponent }) {
             <img src={hkimmigration3} alt="hkimmigration" className="hkimmigration" />
         </div>
 
+        <div className='Methodology'>
+            <ReactMarkdown>{entry && entry.fields.Methodology}</ReactMarkdown>
+        </div>
 
+        
         <div className="DiagramContainer">
-            <img src={diagram} alt="diagram" className="diagram" />
+            <div className='DiagramText'>
+                <ReactMarkdown>{entry && entry.fields.DiagramText}</ReactMarkdown>
+            </div>
+            <div className="Diagram">
+                <img src={diagram} alt="diagram" className="diagram" />
+            </div>
         </div>
     
 
@@ -293,7 +303,7 @@ function HomePage({ setVisibleComponent }) {
                     <ReactMarkdown>{entry && entry.fields.Homepage5Content}</ReactMarkdown>
                     
                 </div>
-                <button className = "Learn-more-button" onClick={() => setVisibleComponent('Project')}>Learn More</button>
+                <button className = "Learn-more-button" onClick={() => setVisibleComponent('Project')}>{entry && entry.fields.homepage5ContentButton}</button>
             </div>
         </div>
 
