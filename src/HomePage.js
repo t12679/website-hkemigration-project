@@ -88,6 +88,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             chart2LegendLabel: item.fields.Chart2LegendLabel,
             textAboveChart3: item.fields.textAboveChart3,
             dotNote: item.fields.dotNote,
+            source1: item.fields.source,
         };
         return acc;
     }, {});
@@ -100,6 +101,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
           chart3: item.fields.Chart3Data,
           chart3LegendLabel: item.fields.Chart3LegendLabel,
           chart3Title: item.fields.Chart3Title,
+          source2:item.fields.source,
         };
         return acc;
       }, {});
@@ -159,7 +161,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
 
                 </div>
                 <div className='ChartSource1'>
-                    Source: <a href="https://www.cpr.cuhk.edu.hk/en/press/survey-findings-on-views-about-emigration-from-hong-kong-released-by-the-hong-kong-institute-of-asia-pacific-studies-at-cuhk-3/" 
+                    {data[currentYear].source1} <a href="https://www.cpr.cuhk.edu.hk/en/press/survey-findings-on-views-about-emigration-from-hong-kong-released-by-the-hong-kong-institute-of-asia-pacific-studies-at-cuhk-3/" 
                     target="_blank" rel="noopener noreferrer">CUHK Communications and Public Relations Office</a>
                 </div>
             </div>
@@ -182,7 +184,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             </div>
             )}
             <div className='ChartSource2'>
-                Source: <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
+                {data2[Year].source2} <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
             </div>
         </div>
 

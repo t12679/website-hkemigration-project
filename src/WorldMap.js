@@ -15,10 +15,10 @@ const countryHighlight = {
 const hongKongCoordinates = [114.1095, 22.3964];
 
 const paths = [
-  { coordinates: [100.7751, -33.2744], name: 'Australia', percentage: 6.1 }, // Australia
-  { coordinates: [-106.3468, 59.1304], name: 'Canada', percentage: 15.0 }, // Canada
-  { coordinates: [-3.4359, 45.3781], name: 'United Kingdom', percentage: 15.0 }, // UK
-  { coordinates: [140.9605, 10.6978], name: 'Taiwan', percentage: 15.0 }, // Taiwan
+  { coordinates: [100.7751, -33.2744], name: 'Australia (澳洲)', percentage: 6.1 }, // Australia
+  { coordinates: [-106.3468, 59.1304], name: 'Canada (加拿大)', percentage: 15.0 }, // Canada
+  { coordinates: [-3.4359, 45.3781], name: 'United Kingdom (英國)', percentage: 15.0 }, // UK
+  { coordinates: [150.9605, 10.6978], name: 'Taiwan (台灣)', percentage: 15.0 }, // Taiwan
 ];
 
 const colorScale = scaleLinear()
@@ -33,8 +33,12 @@ function WorldMap() {
           <table>
               <thead>
                   <tr>
-                      <th>Country</th>
-                      <th>Percentage</th>
+                      <th>Country
+                        (國家/地區)
+                      </th>
+                      <th>Percentage
+                        (百分比)
+                      </th>
                   </tr>
               </thead>
               <tbody>
@@ -45,7 +49,7 @@ function WorldMap() {
                       </tr>
                   ))}
                   <tr>
-                      <td>Other Countries</td>
+                      <td>Other Countries (其他國家)</td>
                       <td>20%</td>
                   </tr>
               </tbody>
