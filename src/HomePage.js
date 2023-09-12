@@ -275,6 +275,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             <ReactMarkdown>{entry && entry.fields.Methodology}</ReactMarkdown>
         </div>
 
+
         
         <div className="DiagramContainer">
             <div className='DiagramText'>
@@ -285,6 +286,12 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             </div>
         </div>
     
+
+        <div className='Methodology2'>
+            <div className='Methodology2-container'>
+                <ReactMarkdown>{entry && entry.fields.methodology2}</ReactMarkdown>
+            </div>
+        </div>
 
         
 

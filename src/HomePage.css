@@ -264,6 +264,28 @@
     flex-direction: column;
 }
 
+
+.Methodology2{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(49,118,84,1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    font-size: 17px;
+}
+
+.Methodology2-container{
+    width:45%;
+    padding-left: 60px;
+    align-self: start;
+}
+
+
+
 .DiagramText{
     padding-top: 10px;
     padding-bottom: 15px;
@@ -350,9 +372,9 @@
 
  .MapContainer {
     display: flex;
-
     width: 100%;
 }
+
  .Map{
     height: auto;
     width: 100%;
@@ -366,9 +388,9 @@
 
 
  .Homepage4{
-    background-color: rgba(49,118,84,1);
+   
     width: 100%;
-    color: white;
+  
     padding: 20px 0 40px 0;
  }
 
@@ -445,9 +467,9 @@
 
 
  .Homepage5{
-    background-color: white;
+    background-color: rgba(49,118,84,1);
     width: 100%;
-    color: black;
+    color:white;
     padding: 20px 0 40px 0;
  }
 

@@ -81,6 +81,8 @@ function Data({currentLanguage}) {
         <button onClick={goToNextSlide}>Next</button>
       </div>
 
+      
+
     </div>
   );
 }
