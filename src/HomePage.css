@@ -384,6 +384,8 @@
  .MapSource{
     display: flex;
     justify-self: flex-end;
+    margin-left: 70px;
+    font-size: 10px;
  }
 
 

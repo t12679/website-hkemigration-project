@@ -53,9 +53,6 @@ function Data({currentLanguage}) {
       const entry = Pagedata ? Pagedata[0] : null;
 
 
-
-
-
   return (
     <div>
       <div className='WordCloud'>

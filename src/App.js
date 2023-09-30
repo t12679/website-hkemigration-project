@@ -20,6 +20,8 @@ import useContentful from './useContentful';
 
 
 
+
+
 function App() {
   const [visibleComponent, setVisibleComponent] = useState('HomePage');
   const [currentLanguage, setCurrentLanguage] = useState('en-US');
@@ -40,19 +42,19 @@ function App() {
       case 'Project':
         return <Project setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Team':
-        return <Team setVisibleComponent={setVisibleComponent} />
+        return <Team setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Contact Us':
-        return <ContactUs setVisibleComponent={setVisibleComponent} />
+        return <ContactUs setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Survey':
-        return <Survey setVisibleComponent={setVisibleComponent} />
+        return <Survey setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Interview':
-        return <Interview setVisibleComponent={setVisibleComponent} />
+        return <Interview setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Cantonese':
-        return <Cantonese setVisibleComponent={setVisibleComponent} />
+        return <Cantonese setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Mandarin':
-        return <Mandarin setVisibleComponent={setVisibleComponent} />
+        return <Mandarin setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'English':
-        return <English setVisibleComponent={setVisibleComponent} />
+        return <English setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Data':
         return <Data setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       default:
@@ -122,29 +124,27 @@ function App() {
   )
   
 
-
-
-
-
   return (
-    <div className="app">
-      <header>
-        
-        <h1 className="title" onClick={() => setVisibleComponent('HomePage')}>
-        <ReactMarkdown>{entry && entry.fields.websiteName}</ReactMarkdown>
-        </h1>
-        {renderNavigation()}
-      </header>
-      <main>
-        {renderComponent()}
-      </main>
-      <footer>
-        <div className="title-footer" onClick={() => setVisibleComponent('HomePage')}>
-        {entry && entry.fields.websiteName}
-        </div>
-        {renderFooterButtons()}
-      </footer>
-    </div>
+   
+      <div className="app">
+        <header>
+          <h1 className="title" onClick={() => setVisibleComponent('HomePage')}>
+          <ReactMarkdown>{entry && entry.fields.websiteName}</ReactMarkdown>
+          </h1>
+
+          {renderNavigation()}
+        </header>
+        <main>
+          {renderComponent()}
+        </main>
+        <footer>
+          <div className="title-footer" onClick={() => setVisibleComponent('HomePage')}>
+          {entry && entry.fields.websiteName}
+          </div>
+          {renderFooterButtons()}
+        </footer>
+      </div>
+   
   );
 }
 

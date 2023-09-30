@@ -259,7 +259,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                     <WorldMap/>
                 </div>
                 <div className='MapSource'>
-                        Source:----
+                <ReactMarkdown>{entry && entry.fields.homepage3ContentSource}</ReactMarkdown> 
                     </div>
             </div>     
         </div>
