@@ -2,57 +2,100 @@
     text-align: center;
     margin: auto;
     text-align: left;
-    padding-top: 20px;
+    
 }
 
 .Team-intro{
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 35px;
 
 }
 
 .Team-intro-container{
     max-width: 80%;
-    font-size: 19px;
+    font-size: 28px;
+
 
 }
 
 .Team-section1{
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     background-color: rgba(49,118,84,1);
     color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
 }
+
+
+.Team-section1-title {
+    grid-column: 1 / -1; 
+    font-size: 22px;
+  }
 
 
 .Team-section2{
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
+
+.Team-section2-title {
+    grid-column: 1 / -1;
+    font-size: 22px; 
+    
+  }
 
 .Team-section3{
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     background-color: rgba(49,118,84,1);
     color: white;
 }
 
+
+.Team-section3-title {
+    grid-column: 1 / -1;
+    font-size: 22px; 
+    
+  }
 
 .Team-section4{
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
 }
 
+
+
+.Team-section4-title {
+    grid-column: 1 / -1;
+    font-size: 22px; 
+    
+  }
+
+
 .Team-section5{
-    padding-left: 20px;
+    padding-left: 50px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     background-color: rgba(49,118,84,1);
     color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
 }
+
+.Team-section5-title {
+    grid-column: 1 / -1;
+    font-size: 22px; 
+  }
+
 

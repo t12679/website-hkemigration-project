@@ -30,32 +30,48 @@ function Team({currentLanguage}) {
         </div>
       </div>
       <div className='Team-section1'>
-        <div className='Team-section1-container'>
+        <div className='Team-section1-title'>
           <ReactMarkdown>{entry && entry.fields.section1}</ReactMarkdown>
+        </div>
+        <div className='Team-section1-container'>
+          <ReactMarkdown>{entry && entry.fields.section1Name1}</ReactMarkdown>
+        </div>
+        <div className='Team-section1-container'>
+          
         </div>
       </div>
 
       <div className='Team-section2'>
-        <div className='Team-section2-container'>
+        <div className='Team-section2-title'>
           <ReactMarkdown>{entry && entry.fields.section2}</ReactMarkdown>
         </div>
       </div>
 
       <div className='Team-section3'>
-        <div className='Team-section3-container'>
+        <div className='Team-section3-title'>
           <ReactMarkdown>{entry && entry.fields.section3}</ReactMarkdown>
         </div>
       </div>
 
       <div className='Team-section4'>
-        <div className='Team-section4-container'>
+        <div className='Team-section4-title'>
           <ReactMarkdown>{entry && entry.fields.section4}</ReactMarkdown>
         </div>
+        <div className='Team-section4-container'>
+          <ReactMarkdown>{entry && entry.fields.section4Name1}</ReactMarkdown>
+        </div>
+        <div className='Team-section4-container'>
+          
+        </div>
+
       </div>
 
       <div className='Team-section5'>
-        <div className='Team-section5-container'>
+        <div className='Team-section5-title'>
           <ReactMarkdown>{entry && entry.fields.section5}</ReactMarkdown>
+        </div>
+        <div className='Team-section5-container'>
+          <ReactMarkdown>{entry && entry.fields.section5Name1}</ReactMarkdown>
         </div>
       </div>
 
