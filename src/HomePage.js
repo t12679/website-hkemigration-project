@@ -34,7 +34,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
       }, [currentYear]);
       
       const handleChangeYear = (year) => {
-        if (year >= 2019 && year <= 2021) {
+        if (year >= 2019 && year <= 2022) {
             setCurrentYear(year);
             setSelectedButton(year);
             setYear(year);
@@ -180,12 +180,14 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                         animate={animateCharts}/>      
                         <div className="chart-title">{data2[Year].chart3Title}({currentYear+1} - {currentYear})</div>                     
                 </div> 
+
+                <div className='ChartSource2'>
+                    {data2[Year].source2} <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
+                 </div>
                 
             </div>
             )}
-            <div className='ChartSource2'>
-                {data2[Year].source2} <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
-            </div>
+            
         </div>
 
         <div className="button-group">
@@ -204,16 +206,16 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             </button>
             <button 
                 onClick={() => handleChangeYear(2021)}
-                className={`button ${selectedButton === 2021 ? 'selected' : ''} last-button`}
+                className={`button ${selectedButton === 2021 ? 'selected' : ''} `}
             >
                 2021
             </button>
-           {/* <button 
+            <button 
                 onClick={() => handleChangeYear(2022)}
                 className={`button ${selectedButton === 2022 ? 'selected' : ''} last-button`}
             >
                 2022
-            </button>*/}
+            </button>
         </div>
 
 
