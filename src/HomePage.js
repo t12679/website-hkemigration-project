@@ -176,18 +176,19 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                         <DotChart
                         key={`${currentYear}Chart3`} 
                         people={data2[Year].chart3} 
-                        color='#317654' 
+                        color='#317654'gi 
                         animate={animateCharts}/>      
                         <div className="chart-title">{data2[Year].chart3Title}({currentYear+1} - {currentYear})</div>                     
                 </div> 
-
-                <div className='ChartSource2'>
-                    {data2[Year].source2} <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
-                 </div>
                 
             </div>
             )}
-            
+
+            {currentYear !== 2022 && (
+                <div className='ChartSource2'>
+                    {data2[Year].source2} <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
+                </div>
+             )}
         </div>
 
         <div className="button-group">
