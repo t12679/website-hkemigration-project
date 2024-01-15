@@ -170,21 +170,24 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             <div className='TextAboveChart3'><ReactMarkdown>{data[currentYear].textAboveChart3}</ReactMarkdown></div>
 
 
-            {currentYear !== 2022 && (
+            {currentYear !== 2023 && (
             <div className="Second-chart-container">
                 <div className="Second-chart-container1"> 
+                    <div className="number-container">
+                        {currentYear === 2022 && <span className="minus-sign">-</span>}
                         <DotChart
-                        key={`${currentYear}Chart3`} 
-                        people={data2[Year].chart3} 
-                        color='#317654'gi 
-                        animate={animateCharts}/>      
+                            key={`${currentYear}Chart3`} 
+                            people={data2[Year].chart3} 
+                            color={currentYear === 2022 ? '#808080' : '#317654'} 
+                            animate={animateCharts}/>
+                    </div>
                         <div className="chart-title">{data2[Year].chart3Title}({currentYear+1} - {currentYear})</div>                     
                 </div> 
                 
             </div>
             )}
 
-            {currentYear !== 2022 && (
+            {currentYear !== 2023 && (
                 <div className='ChartSource2'>
                     {data2[Year].source2} <a href = "https://www.censtatd.gov.hk/en/scode600.html" target="_blank" rel="noopener noreferrer">Census and Statistics Department of the Hong Kong</a>
                 </div>

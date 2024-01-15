@@ -140,6 +140,7 @@
 }
 
 
+
 .Year{
     display: flex;
     align-items: center;
@@ -209,6 +210,23 @@
     align-items: center;
     width: 100%; 
 }
+
+.number-container {
+    display: flex; /* This will lay out its children inline with each other */
+    align-items: center; /* This will vertically center the children */
+    justify-content: center; /* This will horizontally center the children */
+  }
+  
+  .minus-sign {
+    margin-top: -32px;
+    margin-right: -140px;
+    margin-left: 140px;
+    /* Ensure the minus sign doesn't wrap or expand */
+    
+  }
+  
+  
+  
 
 .ChartSource2{
     order: 5;

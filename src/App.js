@@ -80,7 +80,7 @@ function App() {
           </div>
         )}
       </div>
-      <button onClick={() => setVisibleComponent('Survey')}>{entry && entry.fields.takeSurvey}</button>
+      
         <div className='dropdown-buttons' 
           onMouseEnter={() => setShowDropdownInterview(true)}
           onMouseLeave={() => setShowDropdownInterview(false)}
@@ -112,7 +112,6 @@ function App() {
   const renderFooterButtons = () => (
     <nav className='nav-footer'>
       <button className="about-button" onClick={() => setVisibleComponent('About')}>{entry && entry.fields.navAbout}</button>
-      <button onClick={() => setVisibleComponent('Survey')}>{entry && entry.fields.takeSurvey}</button>
       <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>{entry && entry.fields.takeInterview}</button>
       <button onClick={() => setVisibleComponent('Data')}>{entry && entry.fields.dataAndPreliminaryResults}</button>
       <LanguageSwitcher 
