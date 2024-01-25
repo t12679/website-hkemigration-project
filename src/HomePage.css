@@ -214,7 +214,7 @@
 .number-container {
     display: flex; /* This will lay out its children inline with each other */
     align-items: center; /* This will vertically center the children */
-    justify-content: center; /* This will horizontally center the children */
+    justify-content: center; 
   }
   
   .minus-sign {
