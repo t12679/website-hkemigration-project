@@ -213,7 +213,7 @@
 
 .number-container {
     display: flex; /* This will lay out its children inline with each other */
-    align-items: center; /* This will vertically center the children */
+    align-items: center; 
     justify-content: center; 
   }
   
