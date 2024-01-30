@@ -36,14 +36,14 @@ function Team({currentLanguage}) {
         <div className='Team-section1-container'>
           <ReactMarkdown>{entry && entry.fields.section1Name1}</ReactMarkdown>
         </div>
-        <div className='Team-section1-container'>
-          
-        </div>
       </div>
 
       <div className='Team-section2'>
         <div className='Team-section2-title'>
           <ReactMarkdown>{entry && entry.fields.section2}</ReactMarkdown>
+        </div>
+        <div className='Team-section2-container'>
+          <ReactMarkdown>{entry && entry.fields.section2Name1}</ReactMarkdown>
         </div>
       </div>
 

@@ -17,7 +17,6 @@
     background-attachment: fixed;
 }
     
-
 .Homepage1-heading {
     text-align: center;
 }
@@ -31,7 +30,6 @@
     color: white;
 }
 
-
 .Chart-section {
     display: flex;
     flex-direction: column;
@@ -43,7 +41,6 @@
     position: relative;
 
 }
-
 
 @media (max-width: 1200px) {
     .Chart-section,
@@ -64,7 +61,6 @@
     gap: 350px;
 }
 
-
 .Charts-container {
     display: flex;
     flex-direction: column;
@@ -73,7 +69,6 @@
     width: 70%; /* or adjust as necessary */
     
 }
-
 
 .ChartNote{
     padding: 20px;
@@ -221,20 +216,13 @@
     margin-top: -32px;
     margin-right: -140px;
     margin-left: 140px;
-   
-
-    
   }
-  
-  
-  
 
 .ChartSource2{
     order: 5;
     margin-top: 30px;
     font-size: 10px;
 }
-
 
 .Graph-Diagram-Container{
     background-color:  rgba(49,118,84,1);
@@ -271,11 +259,10 @@
     justify-content: center;
     flex-direction: column;
     text-align: left;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .DiagramContainer{
-    
     margin-bottom: 0px;
     display: flex;
     align-items: center;
@@ -284,24 +271,6 @@
 }
 
 
-.Methodology2{
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background-color: rgba(49,118,84,1);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-    font-size: 17px;
-}
-
-.Methodology2-container{
-    width:45%;
-    padding-left: 60px;
-    align-self: start;
-}
 
 
 
@@ -351,7 +320,7 @@
     margin: auto; 
     padding-bottom: 40px;
     color:white;
-    font-size: 23px;
+    font-size: 18px;
 }
 
 .Homepage2-content p {
@@ -383,7 +352,7 @@
 
  .Homepage3-heading{
     display: flex;
-    font-size: 17px;
+    font-size: 18px;
     padding-bottom: 10px;
     margin-left: 70px;
  }
@@ -407,11 +376,27 @@
     font-size: 10px;
  }
 
+ .Methodology2{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(49,118,84,1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    font-size: 18px;
+}
+
+.Methodology2-container{
+    width: 70%; 
+    margin: auto; 
+}
+
 
  .Homepage4{
-   
     width: 100%;
-  
     padding: 20px 0 40px 0;
  }
 
@@ -422,7 +407,6 @@
     justify-content: center;
     width: 70%; 
     margin: auto; 
-    font-size: 30px;
  }
 
 
@@ -431,7 +415,7 @@
  }
 
  .Homepage4-content-p{
-    font-size: 20px;
+    font-size: 18px;
  }
 
 
