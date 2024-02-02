@@ -1,5 +1,6 @@
 import React from 'react';
 import './HomePage.css';
+import ThermometersWrapper from './ThermometersWrapper';
 import { useTranslation } from 'react-i18next';
 import useContentful from './useContentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -13,6 +14,7 @@ import diagram from './images/Diagram.png'
 import hkimmigration1 from './images/hk immigration1.png'
 import hkimmigration2 from './images/hk immigration2.png'
 import hkimmigration3 from './images/hk immigration3.avif'
+
 
 
 
@@ -311,7 +313,6 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
         </div>
 
 
-
         <div className = "Homepage5">
             <div className="Homepage5-content">
                 <div className="Homepage5-content-p">
@@ -319,6 +320,20 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                     
                 </div>
                 <button className = "Learn-more-button" onClick={() => setVisibleComponent('Project')}>{entry && entry.fields.homepage5ContentButton}</button>
+            </div>
+        </div>
+
+        <div className='Thermometer'>
+            <div className='Thermometer-heading'>
+                Progress Tracker: Survey and Interview Updates
+             </div>
+            <div className='Thermometer-content'>
+            <ThermometersWrapper
+                surveyGoal={1000}
+                surveyCurrent={280}
+                interviewGoal={100}
+                interviewCurrent={51}
+            />
             </div>
         </div>
 
@@ -333,8 +348,6 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                 </div>
             </div>
         </div>
-
-
     </div>
   );
 }
