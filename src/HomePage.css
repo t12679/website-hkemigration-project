@@ -528,7 +528,7 @@
   .Thermometer {
     display: flex;
     justify-content: center;
-    padding: 40px 0 40px 0;
+    padding: 20px 0 40px 0;
     flex-direction: column;
     align-items: center;
 }

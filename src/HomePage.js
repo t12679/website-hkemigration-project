@@ -325,7 +325,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
 
         <div className='Thermometer'>
             <div className='Thermometer-heading'>
-                Progress Tracker: Survey and Interview Updates
+                <ReactMarkdown>{entry && entry.fields.progressTrackerHeading}</ReactMarkdown>
              </div>
             <div className='Thermometer-content'>
             <ThermometersWrapper
