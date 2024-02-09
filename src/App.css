@@ -5,7 +5,6 @@ body {
   
 }
 
-
 .app {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -14,22 +13,31 @@ body {
 
 header {
   display: flex;
+  text-align: center;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  padding-left: 30px;
-  font-size: 12px;
+  padding: 5px 30px 20px 30px;
+  font-size: 20px;
   background-color: rgba(49,118,84,1);
   color: white;
+  
 }
 
 h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   margin: 0;
+  
+
 }
 
 .title {
   cursor: pointer;
-  padding-right: 50px;
+  margin-bottom:0px;
+  line-height:1;
+ 
 }
 
 .title:hover {
@@ -40,11 +48,8 @@ nav {
   display: flex;
   gap: 20px;
   height: 45px;
-  padding-right: 20px;
   position: relative;
   font-size: 15px;
-  padding-left:50px;
-  
 }
 
 
@@ -54,7 +59,6 @@ nav {
   }
   
 }
-
 
 @media (max-width: 930px) {  /* adjust as needed */
   header nav {
@@ -83,7 +87,6 @@ nav button {
   font-size: 1em;
   
 }
-
 
 .nav-footer button {
   color: black;
@@ -126,15 +129,12 @@ nav button:hover {
   z-index: 1;
 }
 
-
 @media (max-width: 1533px){
   .dropdown-about{
     top:40px;
   }
   }
   
-
-
 
 .dropdown-about button,
 .dropdown-aboutCN button{

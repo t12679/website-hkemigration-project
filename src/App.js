@@ -127,9 +127,9 @@ function App() {
    
       <div className="app">
         <header>
-          <h1 className="title" onClick={() => setVisibleComponent('HomePage')}>
-          <ReactMarkdown>{entry && entry.fields.websiteName}</ReactMarkdown>
-          </h1>
+          <div className="title" onClick={() => setVisibleComponent('HomePage')}>
+          <ReactMarkdown>{entry && entry.fields.websiteTitle}</ReactMarkdown>
+          </div>
 
           {renderNavigation()}
         </header>
