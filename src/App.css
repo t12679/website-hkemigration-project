@@ -17,7 +17,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5px 30px 20px 30px;
+  padding: 30px 30px 20px 30px;
   font-size: 20px;
   background-color: rgba(49,118,84,1);
   color: white;
@@ -37,6 +37,7 @@ h1 {
   cursor: pointer;
   margin-bottom:0px;
   line-height:1;
+  font-size: 18px;
  
 }
 
