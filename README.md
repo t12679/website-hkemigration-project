@@ -6,7 +6,7 @@ This repository stores (separately) files used by each programming teams in the 
 
 Since its update in 28/2/2024, this repository has been restructured to a directory with three subfolders, one for each team in this project[^1].
 
-The three subfolders refers to the three teams respectively: **data management**, **text scraping** and **webpage design**. Please don't put the *structure* and *details* for each folder in this page. Put them in a separate `README.md` within the subfolder.
+The three subfolders refers to the three teams respectively: **data management**, **text scraping** and **webpage design**. Please don't put the *structure* and *details* for each folder in this page. Put them in a separate `README.md` within the subfolder. The management of each subfolder is left to each team.
 
 ## Using Git and/or GitHub
 
