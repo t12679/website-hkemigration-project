@@ -491,8 +491,8 @@
   },
   "occupation": {
     "from": [
-      "What job(s) do you have?\n您的職業是什麼？",
-      "Before you left Hong Kong, what job(s) did you have?\n您離開香港之前，您的職業是什麼？"
+      "What job(s) do you have?  \n您的職業是什麼？",
+      "Before you left Hong Kong, what job(s) did you have? \n您離開香港之前，您的職業是什麼？"
     ],
     "values": {
       "chef, security guard": 31,
@@ -686,7 +686,7 @@
       "Financial analyst": 47
     }
   },
-  "parent_ocpr": {
+  "parent_occupation": {
     "from": [
       "What work do you mother and father do (or did before they retired)? \n您父母現時的職業是什麼 (若他們已退休，他們之前的職業是什麼）？",
       "Before you left Hong Kong, what work did your mother and father do (or did before they retired)? \n您離開香港之前，您父母的職業是什麼 (若他們已退休，他們之前的職業是什麼）？"
@@ -883,9 +883,9 @@
       "Financial analyst": 47
     }
   },
-  "spouse_ocpr": {
+  "spouse_occupation": {
     "from": [
-      "What is your spouse's job in Hong Kong? \n您配偶在香港的工作是？",
+      "What is your spouse's job in Hong Kong?  \n您配偶在香港的工作是？",
       "Before you left Hong Kong, what was your spouse's job in Hong Kong? \n您離開香港之前，您配偶在香港的工作是？"
     ],
     "values": {
@@ -1078,63 +1078,6 @@
       "Full-time student": 0,
       "Logistics Manager": 60,
       "Financial analyst": 47
-    }
-  },
-  "other_pay_trip": {
-    "from": [],
-    "values": {
-      "me": 0,
-      "Myself": 0,
-      "Myself and my boyfriend": 1,
-      "Parents": 1,
-      "family": 1,
-      "我": 0,
-      "Mom": 1,
-      "Family ": 1,
-      "My parents": 1,
-      "everyone": 1,
-      "自己": 0,
-      "自己及太太": 1,
-      "自己及丈夫": 1,
-      "父母/祖父母": 1,
-      "I and my husband": 1,
-      "家人": 1,
-      "me ": 1,
-      "Solely myself": 1,
-      "myself and my brother": 1,
-      "本人+父母": 1,
-      "Myself ": 0,
-      "我和未婚夫": 1,
-      "Myself and the future employer": 1,
-      "母親": 1,
-      "My own savings and parents": 1,
-      "我自己": 0,
-      "我本人": 0,
-      "我同先生": 1,
-      "My parents ": 1,
-      "我、父母": 1,
-      "me and my girlfriend": 1,
-      "父母": 1,
-      "me myself": 0,
-      "me,parents": 1,
-      "All family members": 1,
-      "Myself and my future employer": 1,
-      "myself": 0,
-      "parents": 1,
-      "No one": 0,
-      "My parents and myself": 1,
-      "Myself and Family": 1,
-      "solely paid": 0,
-      "My spouse and I": 1,
-      "丈夫": 1,
-      "with partner": 1,
-      "自己一半， 父母一半": 1,
-      "自己。": 0,
-      "me and my fiance": 1,
-      "On my own": 0,
-      "Parents ": 1,
-      "自己及伴侶": 1,
-      "Self": 0
     }
   }
 }

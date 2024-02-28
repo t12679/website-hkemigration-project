@@ -14,14 +14,17 @@ library(readr)
 data <- read_csv("processed_data3.csv")
 library(dplyr)
 library(jsonlite)
+library(here)
 <!-- dat_r$lam_extradition_bill <- do.call(recode, c(list(.x=get_data(test$lam_extradition_bill$from)), test$lam_extradition_bill$values, .default=test$lam_extradition_bill$default)) -->
+
+<!-- set THIS file to be "working directory" before running! -->
 
 get_data <- function(string) {
   return (data[[base::gsub("[[:punct:] \n]", ".", string)]])
 }
 
 dat_r<-data
-recoder <- jsonlite::fromJSON(txt=file("C:\\Users\\b153874\\Downloads\\recode.json"))
+recoder <- jsonlite::fromJSON(txt=file(file.path(getwd(), "recode.json")))
 
 for (name in names(recoder)) {
   print(name)
