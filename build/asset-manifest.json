@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1f4b134b.css",
+    "main.js": "/static/js/main.43454541.js",
+    "static/js/787.df89c28b.chunk.js": "/static/js/787.df89c28b.chunk.js",
+    "static/media/hongkong immigration photos.jpg": "/static/media/hongkong immigration photos.ddb45a065d44c410e03e.jpg",
+    "static/media/Word Cloud.png": "/static/media/Word Cloud.a53585d293c87ab05b6c.png",
+    "static/media/hk immigration1.png": "/static/media/hk immigration1.6ade81931d7280d9037b.png",
+    "static/media/Proejct Chart 3.png": "/static/media/Proejct Chart 3.4d36d107081525b97276.png",
+    "static/media/hk immigration2.png": "/static/media/hk immigration2.953f0de9295874ad2cb5.png",
+    "static/media/Proejct Chart 2.png": "/static/media/Proejct Chart 2.e95fda734c4ae3856507.png",
+    "static/media/Diagram.png": "/static/media/Diagram.0674acc0344ce6a1f247.png",
+    "static/media/Proejct Chart 1.png": "/static/media/Proejct Chart 1.c115658765da9cf4e858.png",
+    "static/media/hk immigration3.avif": "/static/media/hk immigration3.95c37a42e21494c5e888.avif",
+    "static/media/Pension Pots.png": "/static/media/Pension Pots.b56610b49e96a0d872f1.png",
+    "static/media/Checking Out.png": "/static/media/Checking Out.57bc7be4ca726140727a.png",
+    "index.html": "/index.html",
+    "main.1f4b134b.css.map": "/static/css/main.1f4b134b.css.map",
+    "main.43454541.js.map": "/static/js/main.43454541.js.map",
+    "787.df89c28b.chunk.js.map": "/static/js/787.df89c28b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f4b134b.css",
+    "static/js/main.43454541.js"
+  ]
+}
