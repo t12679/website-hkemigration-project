@@ -1,0 +1,14 @@
+.DataProtection{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    
+}
+
+.DataProtectionContent{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 19px;
+    margin:0% 5%;
+}

@@ -10,6 +10,7 @@ import Cantonese from './Cantonese';
 import Mandarin from './Mandarin';
 import English from './English'; 
 import Data from './Data';
+import DataProtection from './DataProtection';
 import './App.css';
 import './i18n';
 import ReactMarkdown from 'react-markdown';
@@ -57,6 +58,8 @@ function App() {
         return <English setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       case 'Data':
         return <Data setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
+        case 'DataProtection':
+        return <DataProtection setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
       default:
         return <HomePage setVisibleComponent={setVisibleComponent} currentLanguage={currentLanguage}/>
     }
@@ -77,6 +80,7 @@ function App() {
             <button onClick={() => setVisibleComponent('Project')}>{entry && entry.fields.navProject}</button>
             <button onClick={() => setVisibleComponent('Team')}>{entry && entry.fields.navTeam}</button>
             <button onClick={() => setVisibleComponent('Contact Us')}>{entry && entry.fields.navContact}</button>
+            
           </div>
         )}
       </div>
@@ -91,6 +95,7 @@ function App() {
             <button onClick={() => setVisibleComponent('Cantonese')}>{entry && entry.fields.cantonese}</button>
             <button onClick={() => setVisibleComponent('Mandarin')}>{entry && entry.fields.mandarin}</button>
             <button onClick={() => setVisibleComponent('English')}>{entry && entry.fields.english}</button>
+            <button onClick={() => setVisibleComponent('DataProtection')}>{entry && entry.fields.dataAnonymityProtection}</button>
           </div>
         )}
       </div>
