@@ -1,0 +1,365 @@
+---
+title: "HK_emigrant_study_analysis"
+output: html_document
+date: "2023-03-03"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+library(readr)
+#you will need to change the file name and path here:
+<!-- data <- read_csv("Documents/Whose Emigrant Intentions Are Genuine Project/processed_data_with_VLOOKUP 4.10.2023_edited_to_clean.csv") -->
+data <- read_csv("processed_data3.csv")
+library(dplyr)
+library(jsonlite)
+library(here)
+<!-- dat_r$lam_extradition_bill <- do.call(recode, c(list(.x=get_data(test$lam_extradition_bill$from)), test$lam_extradition_bill$values, .default=test$lam_extradition_bill$default)) -->
+
+<!-- set THIS file to be "working directory" before running! -->
+
+get_data <- function(string) {
+  return (data[[base::gsub("[[:punct:] \n]", ".", string)]])
+}
+
+dat_r<-data
+recoder <- jsonlite::fromJSON(txt=file(file.path(getwd(), "recode.json")))
+
+for (name in names(recoder)) {
+  print(name)
+  obj <- recoder[[name]]
+  d1 <- do.call(recode, c(list(.x=get_data(obj$from[1])), obj$values, .default=obj$default))
+  if (length(obj$from) > 1){
+    for (from in tail(obj$from, -1)) {
+      d2 <- do.call(recode, c(list(.x=get_data(from)), obj$values, .default=obj$default))
+      d1 <- case_when(
+        !is.na(d1) ~ d1,
+        !is.na(d2) ~ d2
+      )
+    }
+  }
+  dat_r[name] <- d1
+}
+
+<!-- dat_r<-list -->
+#data cleaning:
+#first read in data with read
+<!-- dat_r$lam_extradition_bill<-recode(data$Optional: Think of the SPECIFIC period(s) in the past several years during which you considered emigrating. Go through the events during that period in the following chronological timeline, and please RANK up to 1-3 specific events that you think most triggered you to begin thinking about emigrating or to emigrate. At the end of list，you can add events. -->
+<!-- 可選填：回想過去幾年您考慮移民的具體時期。請閱讀以下按時間順序排列的事件，在您認為最能促使您開始考慮移民或移居的時期，請最多排列 1-3 個具體事件。您可以在清單尾填入其他原因。 - Former Hong Kong Chief Executive Carrie Lam introduces amendments to extradition laws that would allow criminal suspects to be sent to mainland China for trial. April 3rd, 2019. 前特首林鄭月娥提出修定可引渡疑犯至內地受審的《逃犯條例》。2019年4月3日) -->
+
+
+<!-- dat_r$lam_extradition_bill<-recode(data[[gsub("[[:punct:] \n]", ".", "Optional: Think of the SPECIFIC period(s) in the past several years during which you considered emigrating. Go through the events during that period in the following chronological timeline, and please RANK up to 1-3 specific events that you think most triggered you to begin thinking about emigrating or to emigrate. At the end of list，you can add events. -->
+<!-- 可選填：回想過去幾年您考慮移民的具體時期。請閱讀以下按時間順序排列的事件，在您認為最能促使您開始考慮移民或移居的時期，請最多排列 1-3 個具體事件。您可以在清單尾填入其他原因。 - Former Hong Kong Chief Executive Carrie Lam introduces amendments to extradition laws that would allow criminal suspects to be sent to mainland China for trial. April 3rd, 2019. 前特首林鄭月娥提出修定可引渡疑犯至內地受審的《逃犯條例》。2019年4月3日")]], "3"=1, "2"=1, .default=0) -->
+<!-- dat_r$lam_extradition_bill<-recode(get_data("Optional: Think of the SPECIFIC period(s) in the past several years during which you considered emigrating. Go through the events during that period in the following chronological timeline, and please RANK up to 1-3 specific events that you think most triggered you to begin thinking about emigrating or to emigrate. At the end of list，you can add events. -->
+<!-- 可選填：回想過去幾年您考慮移民的具體時期。請閱讀以下按時間順序排列的事件，在您認為最能促使您開始考慮移民或移居的時期，請最多排列 1-3 個具體事件。您可以在清單尾填入其他原因。 - Former Hong Kong Chief Executive Carrie Lam introduces amendments to extradition laws that would allow criminal suspects to be sent to mainland China for trial. April 3rd, 2019. 前特首林鄭月娥提出修定可引渡疑犯至內地受審的《逃犯條例》。2019年4月3日"), "3"=1, "2"=1, .default=0) -->
+<!-- dat_r$lam_extradition_bill<-recode(data$lam_extradition_bill, "3"=1, "2"=1) -->
+<!-- dat_r$police_arrest_nuisance_charges<-recode(data$police_arrest_nuisance_charges, "3"=1, "2"=1) -->
+
+<!-- dat_r$physical_fights_between_politicians<-recode(data$physical_fights_between_politicians, "3"=1, "2"=1) -->
+<!-- dat_r$judiciary_bypassed<-recode(data$judiciary_bypassed, "3"=1, "2"=1) -->
+<!-- dat_r$riot_charges<-recode(data$riot_charges, "3"=1, "2"=1) note: not found -->
+<!-- dat_r$mall_running_battles<-recode(data$mall_running_battles, "3"=1, "2"=1) -->
+<!-- dat_r$LegCo_vandalized<-recode(data$LegCo_vandalized, "3"=1, "2"=1) -->
+<!-- dat_r$PRC_support<-recode(data$PRC_support, "3"=1, "2"=1) -->
+<!-- #dat_r$antiriotingvideos<-recode(data$antiriotingvideos, "3"=1, "2"=1) -->
+<!-- dat_r$police_tear_gas<-recode(data$police_tear_gas, "3"=1, "2"=1) -->
+<!-- #dat_r$billwithdrawal<-recode(data$billwithdrawal, "3"=1, "2"=1) -->
+<!-- #dat_r$antimasklaw<-recode(data$antimasklaw, "3"=1, "2"=1) -->
+
+<!-- dat_r$taxpayer_expense_of_damage<-recode(data$taxpayer_expense_of_damage, "3"=1, "2"=1) -->
+<!-- dat_r$first_death<-recode(data$first_death, "3"=1, "2"=1) -->
+<!-- dat_r$riot_charges<-recode(data$riot_charges, "3"=1, "2"=1) -->
+<!-- #dat_r$democrats_scuffle<-recode(data$democrats_scuffle, "3"=1, "2"=1) -->
+<!-- dat_r$cuhk_seige<-recode(data$cuhk_seige, "3"=1, "2"=1) -->
+<!-- dat_r$poly_seige<-recode(data$poly_seige, "3"=1, "2"=1) -->
+<!-- #dat_r$democratswin<-recode(data$democratswin, "3"=1, "2"=1) -->
+<!-- #dat_r$unidefunding<-recode(data$unidefunding, "3"=1, "2"=1) -->
+<!-- #dat_r$anti-terrorism_videos<-recode(data$anti-terrorism_videos, "3"=1, "2"=1) -->
+<!-- dat_r$covid_police_dissolve_rallies<-recode(data$covid_police_dissolve_rallies, "3"=1, "2"=1) -->
+<!-- dat_r$politicianprotestorsarrested<-recode(data$politicianprotestorsarrested, "3"=1, "2"=1) -->
+<!-- #dat_r$choyarrested<-recode(data$choyarrested, "3"=1, "2"=1) -->
+<!-- dat_r$nsl_planned<-recode(data$nsl_planned, "3"=1, "2"=1) -->
+<!-- dat_r$nsl_<-recode(data$nsl_, "3"=1, "2"=1) -->
+<!-- dat_r$nsl_office<-recode(data$nsl_office, "3"=1, "2"=1) -->
+<!-- #dat_r$book_censorship<-recode(data$book_censorship, "3"=1, "2"=1) -->
+<!-- dat_r$police_raid_polling<-recode(data$police_raid_polling, "3"=1, "2"=1) -->
+<!-- #dat_r$bansingingprotestanthem<-recode(data$bansingingprotestanthem, "3"=1, "2"=1) -->
+<!-- #dat_r$14dayquarantine<-recode(data$14dayquarantine, "3"=1, "2"=1) -->
+
+
+<!-- #dat_r$Britainsuspendsextradition<-recode(data$Britainsuspendsextradition, "3"=1, "2"=1) -->
+<!-- dat_r$bn0_visa<-recode(data$bn0_visa, "3"=1, "2"=1) -->
+<!-- dat_r$bennytaifired<-recode(data$bennytaifired, "3"=1, "2"=1) -->
+<!-- dat_r$Hkdisqualifiesoppositioncandidates<-recode(data$Hkdisqualifiesoppositioncandidates, "3"=1, "2"=1) -->
+<!-- dat_r$appledailyshutdown<-recode(data$appledailyshutdown, "3"=1, "2"=1) -->
+<!-- dat_r$canada_migration_offer<-recode(data$canada_migration_offer, "3"=1, "2"=1) -->
+<!-- dat_r$germany_migration_offer<-recode(data$germany_migration_offer, "3"=1, "2"=1) -->
+<!-- #dat_r$Westappliessanctions<-recode(data$Westappliessanctions, "3"=1, "2"=1) -->
+<!-- dat_r$removeremainingoppositionmembers<-recode(data$removeremainingoppositionmembers, "3"=1, "2"=1) -->
+<!-- dat_r$vaccine_pass<-recode(data$vaccine_pass, "3"=1, "2"=1) -->
+
+
+<!-- dat_r$democrats_arrested<-recode(data$democrats_arrested, "3"=1, "2"=1) -->
+<!-- dat_r$PRC_stop_rec_British_docs<-recode(data$PRC_stop_rec_British_docs, "3"=1, "2"=1) -->
+<!-- #dat_r$norecognizedualnationality<-recode(data$norecognizedualnationality, "3"=1, "2"=1) -->
+<!-- dat_r$national_security_education<-recode(data$national_security_education, "3"=1, "2"=1) -->
+<!-- #dat_r$M+artcensorship<-recode(data$M+artcensorship, "3"=1, "2"=1) -->
+<!-- #dat_r$national_security_education_day<-recode(data$national_security_education_day, "3"=1, "2"=1) -->
+<!-- #dat_r$fire_civil_servants_who_don't_pledge_allegiance<-recode(data$fire_civil_servants_who_don't_pledge_allegiance, "3"=1, "2"=1) -->
+<!-- dat_r$Lai_assets_frozen<-recode(data$Lai_assets_frozen, "3"=1, "2"=1) -->
+<!-- #dat_r$filmdistributionblocked<-recode(data$filmdistributionblocked, "3"=1, "2"=1) -->
+
+
+<!-- dat_r$appledailyraid<-recode(data$appledailyraid, "3"=1, "2"=1) -->
+<!-- <!-- dat_r$appledailyshutdown<-recode(data$appledailyshutdown, "3"=1, "2"=1) --> -->
+<!-- dat_r$studentunionsbanned<-recode(data$studentunionsbanned, "3"=1, "2"=1) -->
+
+<!-- #dat_r$norecognizeteachersunion<-recode(data$norecognizeteachersunion, "3"=1, "2"=1) -->
+<!-- #dat_r$universitiesrequiresnationalsecurityeducation<-recode(data$universitiesrequiresnationalsecurityeducation, "3"=1, "2"=1) -->
+
+<!-- #dat_r$21dayhotelquarantinerequired<-recode(data$21dayhotelquarantinerequired, "3"=1, "2"=1) -->
+<!-- <!-- dat_r$banning_teachers_union<-recode(data$banning_teachers_union, "3"=1, "2"=1) --> -->
+<!-- <!-- dat_r$banning_liberal_studies<-recode(data$banning_liberal_studies, "3"=1, "2"=1) --> -->
+
+<!-- #dat_r$bookcensorship<-recode(data$bookcensorship, "3"=1, "2"=1) -->
+<!-- #dat_r$protestfundshutdown<-recode(data$protestfundshutdown, "3"=1, "2"=1) -->
+
+<!-- <!-- dat_r$john_lee_elected<-recode(data$john_lee_elected, "3"=1, "2"=1) --> -->
+<!-- #dat_r$publishersbanned<-recode(data$publishersbanned, "3"=1, "2"=1) -->
+
+
+<!-- dat_r$married<-recode(data$married, -->
+<!--                           "Married 已婚" = 1, "Never Married 從來沒結婚了"=0, "1"=1, "0"=0, "Married Â∑≤Â©ö"=1, "Never Married Âæû‰æÜÊ≤íÁµêÂ©ö‰∫Ü"=0)   -->
+                         
+                         
+                         
+
+
+<!-- dat_r$MPF_withdrawal<-recode(data$MPF_withdrawal, -->
+<!--                           "Yes 是" = 1, "No 否"=0, "1"=1, "0"=0) -->
+<!-- dat_r$socialmediauser<-recode(data$socialmediauser, -->
+<!--                           "Yes" = 1, "No"=0, "1"=1, "0"=0) -->
+<!-- dat_r$socialmediamentioned<-recode(data$socialmediamentioned, -->
+<!--                           "Yes" = 1, "No"=0, "1"=1, "0"=0) -->
+                          
+#figure oiut how to recode , "Third 三"=3 and "Third ‰∏â"=3 and "Second  二" = 2 and fourth generation variatbles or you will need to do this in excel each time you get data!
+#dat_r$generation_HK<-recode(data$generation_HK,
+#                          "1"=1, "2"=2, "3"=3, "4"=4, "First ‰∏Ä"=1, "Second # ‰∫å"=2, "Third ‰∏â"=3, "Third"=3, "First 一"=1)
+                          
+                   
+                          
+#maybe need to recode this in excel as R does not understand it!: "Fourth or more 四或以上"=4)
+                
+<!-- dat_r$married<-recode(data$married, -->
+<!--                           "Married 已婚" = 1, "Never Married 從來沒結婚了"=0, "1"=1, "0"=0, "Married Â∑≤Â©ö"=1, "Never Married Âæû‰æÜÊ≤íÁµêÂ©ö‰∫Ü"=0)   -->
+     
+
+                                              
+<!-- dat_r$educyear<-recode(data$educyear, "Secondary (F.6 ‚Äì F.7) ‰∏≠Â≠∏ (F.6 ‚Äì F.7)"=12, "Bachelors/Tertiary (4 year degree after high school/secondary) Â≠∏Â£´/È´òÁ≠âÊïôËÇ≤ÔºàÈ´ò‰∏≠/‰∏≠Â≠∏Âæå 4 Âπ¥Â≠∏‰Ωç"=16, "Masters (1-2 years of education after Bachelors) Á¢©Â£´ÔºàÂ≠∏Â£´ÂæåÊé•Âèó 1-2 Âπ¥ÁöÑÊïôËÇ≤Ôºâ"=18, "Ph.D (5-10 years after Bachelors) ÂçöÂ£´ÔºàÂ≠∏Â£´Â≠∏‰ΩçÂæå 5-10 Âπ¥Ôºâ"=24, "Ph.D (5-10 years after Bachelors) 博士（學士學位後 5-10 年）"=24, "Bachelors/Tertiary (4 year degree after high school/secondary) 學士/高等教育（高中/中學後 4 年學位"=16, "No formal schooling/Kindergarten 沒有正規學校/幼兒園"=0, "Primary 基本的"=5, "Vocational education or Associate degree (1-2 year after high school) 職業教育或副學士學位（高中畢業後 1-2 年）"=14, "16"=16, "24"=24, "18"=18, "12"=12, "14"=14, "5"=5, "1"=1)   -->
+
+<!-- dat_r$hhincome<-recode(data$hhincome, "$9,999 or below"=5000, "$10,000 - $19,999"=15000, "$20,000-$29,999"=25000, "$30,000 - $39,999"=35000, "$40,000 - $49,999"=45000, "$50,000 – $59,999"=55000, "$60,000- $99,999"=80000, "$100,000 or above"=120000, "5000"=5000, "15000"=15000, "25000"=25000, "35000"=35000, "45000"=45000, "55000"=55000, "80000"=80000, "115000"=120000) -->
+
+<!-- dat_r$salary<-recode(data$salary, "$9,999 or below"=5000, "$10,000 - $19,999"=15000, "$20,000-$29,999"=25000, "$30,000 - $39,999"=35000, "$40,000 - $49,999"=45000, "$50,000 – $59,999"=55000, "$60,000- $99,999"=80000, "$100,000 or above"=120000, "5000"=5000, "15000"=15000, "25000"=25000, "35000"=35000, "45000"=45000, "55000"=55000, "80000"=80000, "115000"=120000) -->
+
+<!-- dat_r$satsal<-recode(data$satsal, -->
+<!--                           "yes 是" = 1, "no 否"=0, "1"=1, "0"=0)  -->
+
+<!--dat_r$pareducyear<-recode(data$pareducyear, "Secondary (F.6 ‚Äì F.7) ‰∏≠Â≠∏ (F.6 ‚Äì F.7)"=12, "Bachelors/Tertiary (4 year degree after high school/secondary) Â≠∏Â£´/È´òÁ≠âÊïôËÇ≤ÔºàÈ´ò‰∏≠/‰∏≠Â≠∏Âæå 4 Âπ¥Â≠∏‰Ωç"=16, "Masters (1-2 years of education after Bachelors) Á¢©Â£´ÔºàÂ≠∏Â£´ÂæåÊé•Âèó 1-2 Âπ¥ÁöÑÊïôËÇ≤Ôºâ"=18, "Ph.D (5-10 years after Bachelors) ÂçöÂ£´ÔºàÂ≠∏Â£´Â≠∏‰ΩçÂæå 5-10 Âπ¥Ôºâ"=24, "Ph.D (5-10 years after Bachelors) 博士（學士學位後 5-10 年）"=24, "Bachelors/Tertiary (4 year degree after high school/secondary) 學士/高等教育（高中/中學後 4 年學位"=16, "No formal schooling/Kindergarten 沒有正規學校/幼兒園"=0, "Primary 基本的"=5, "Vocational education or Associate degree (1-2 year after high school) 職業教育或副學士學位（高中畢業後 1-2 年）"=14, "16"=16, "24"=24, "18"=18, "12"=12, "14"=14, "5"=5, "1"=1)  -->
+
+<!--dat_r$speducyear<-recode(data$speducyear, "Secondary (F.6 ‚Äì F.7) ‰∏≠Â≠∏ (F.6 ‚Äì F.7)"=12, "Bachelors/Tertiary (4 year degree after high school/secondary) Â≠∏Â£´/È´òÁ≠âÊïôËÇ≤ÔºàÈ´ò‰∏≠/‰∏≠Â≠∏Âæå 4 Âπ¥Â≠∏‰Ωç"=16, "Masters (1-2 years of education after Bachelors) Á¢©Â£´ÔºàÂ≠∏Â£´ÂæåÊé•Âèó 1-2 Âπ¥ÁöÑÊïôËÇ≤Ôºâ"=18, "Ph.D (5-10 years after Bachelors) ÂçöÂ£´ÔºàÂ≠∏Â£´Â≠∏‰ΩçÂæå 5-10 Âπ¥Ôºâ"=24, "Ph.D (5-10 years after Bachelors) 博士（學士學位後 5-10 年）"=24, "Bachelors/Tertiary (4 year degree after high school/secondary) 學士/高等教育（高中/中學後 4 年學位"=16, "No formal schooling/Kindergarten 沒有正規學校/幼兒園"=0, "Primary 基本的"=5, "Vocational education or Associate degree (1-2 year after high school) 職業教育或副學士學位（高中畢業後 1-2 年）"=14, "16"=16, "24"=24, "18"=18, "12"=12, "14"=14, "5"=5, "1"=1)  -->
+
+<!--dat_r$taxesmore<-recode(data$taxesmore,
+                          "more 多" = 1, "less 少"=0, "1"=1, "0"=0) NE -->
+                          
+<!--dat_r$spendvalues<-recode(data$spendvalues,
+                          "yes 是" = 1, "no 否"=0, "1"=1, "0"=0) NE -->
+
+<!--dat_r$bno<-recode(data$bno,
+                          "yes 是" = 1, "no 否"=0, "1"=1, "0"=0) -->
+
+<!--dat_r$willcomeback<-recode(data$willcomeback,
+                          "never 从来" = 0, "occasionally 有的时候"=0, "1"=1, "0"=0) -->
+<!--dat_r$female<-recode(data$female, "0"=0, "1"=1, "male 男性"=0,  "female 女性"=1, "male Áî∑ÊÄß"=0, "female Â•≥ÊÄß"=1)-->
+
+<!-- dat_r$ocpr<-recode(data$job,  "chef, security guard"=31, "cook"=31, "Surveyor"=58, "logistic worker and rehabilitation worker"=60, "factory worker"=33, "sustainability consultant"=56, "waiter"=21, "Technical writer"=58, "engineer"=48, "Engineer"=48,  "doctoral student"=0, "assistant"=0, "teacher"=61, "Education"=61, "customer service"=39, "Researcher"=57, "bank clerk"=42,  "Student and part time accounting clerk "=37, "Junior Research Assistant"=0, "Student"=0, "student"=0, "editor"=58, "Full time student, part time nurse"=54, "finance"=47, "freelancer"=0, "Freelance"=0,  "social worker"=49, "Project Assistant"=47, "social welfare worker"=49, "Students"=0, "Officer"=63, "Accountant"=62, "Project coordinator"=47, "university staff"=60, "Nurse"=54, "Clerk"=37, "Full-time Student (currently taking master programme)"=0, "part-time private tutor"=0, "admin"=60, "Logistics Manager"=60, "teacher"=61, "worker"=13, "Full-time student"=0, "customer service executive"=39, "Flight attendant"=50, "Admin"=60, "Programme Assistant"=53,  "full timw student"=0, "Manager"=51, "retired"=0, "haha"=0, "No"=0, "Part time lecturer in universities"=78, "almost retired"=0, "Communication"=52, "Copywriter"=58, "sales"=47, "unemployed"=0, "Project Coordinator"=53, "Project Coordinator"=53, "Administrative Assistant"=53, "PhD student"=0, "Electronic Engineer"=65, "Traders"= 50, "Executive assistant"=53, "Pharmacist"=64, "freelancer"=0, "Postdoctoral Fellow"=58, "Research Assistant"=58, "language research assistant"=58, "education"=50, "administrator"=53, "statistician"=56, "Researcher"=58, "administrative staff"=53, "library assistant"=54, "marketing"=60, "Manager at CUHK"=60, "housewife"=0, "Education"=78, "education worker"=61, "teacher"=61, "Open Water Scuba Instructor"=32, "Research Scientist"=58, "Environmental consultant"=56, "Public Relations & Marketing professional"=57, "interpreter"=62, "driver"=33, "janitor and truck driver"=33, "Businessman"=50, "clerk and property manager"=37, "Primary School Principal, Bank Manager"=60, "cleaner"=21, "MTR mechanic"=66, "banker"=60, "technician, housewife"=48, "senior manager"=51, "Public servant"=55, "civil servant"=55, "merchant"=56, "teacher, housewife"=61, "merchant, banker"=60, "businessmen"=50, "caterer and cleaner"=21, "secretary, real estate"=60, "Healthcare assistant in HA and housewife"=73, "construction worker"=16, "self employed, sales person"=32, "Entrepreneurs"=50, "Jobless"=0, "Banking"=50, "Communications Manager"=60, "Waiter"=21, "business owners"=70, "Car mechanics, accountant"=62, "Father: Plumber; Mother: Housewife"=62, "secretary and engineer "=62, "Teacher and Engineer"=62, "工務員"=33, "文員"=37,  "casual work"=33,  "Fashion designer & accountant"=62, "Catering"=21, "Bank Staff"=60, "裝修工人"=49,  "無業"=0, "Sales and clerk"=37, "Mother health care worker "=70, "Entrepreneurs "=70,"Nurse and customs officer"=54,"hospital assistant "=73,"interpreter"=62,"manager"=51,"unemployed"=0,"Public Relations & Marketing professional"=60,"Environmental consultant"=56,"Research Scientist"=63,"Open Water Scuba Instructor"=26,"edtior"=58,"Teacher in HK, Clerk in Canada"=63,"NA"=0,"Clerk"=37,"worker"=32,"student"=0,"0"=0,"education worker"=62,"ask him what is this: Yea vu g"=0,"research assistant"=62,"Education"=62,"housewife"=0,"Manager in CUHK"=62,"teacher"=62,"marketing"=60,"analyst"=62,"administration"=60,"library assistant"=36,"administrative staff"=53,"Researcher"=62,"administrator"=53,"statistican"=56,"social worker"=52,"nurse"=54,"language research assistant"=62,"Postdoctoral Fellow"=62,"freelancer"=62,"engineer"=63,"Pharmacist"=64,"Executive assistant"=53,"Traders"=55,"Electronic Engineer"=65,"PhD student"=0,"Administrative Assistant"=53,"Project coordinator"=60,"Copywriter"=60,"sales"=60,"Communications Manager "=60,"almost retired"=0,"Part time lecturer in universities"=62,"No"=0,"haha"=0,"retired"=0,"full timw student"=0,"Programme Assistant"=53,"Admin"=53,"Flight attendant "=53,"customer service executive"=60,"Full-time student"=0,"Logistics Manager"=60, "Financial analyst"=47)
+
+
+dat_r$parocpr<-recode(data$parjob,  "chef, security guard"=31, "cook"=31, "Surveyor"=58, "logistic worker and rehabilitation worker"=60, "factory worker"=33, "sustainability consultant"=56, "waiter"=21, "Technical writer"=58, "engineer"=48, "Engineer"=48,  "doctoral student"=0, "assistant"=0, "teacher"=61, "Education"=61, "customer service"=39, "Researcher"=57, "bank clerk"=42,  "Student and part time accounting clerk "=37, "Junior Research Assistant"=0, "Student"=0, "student"=0, "editor"=58, "Full time student, part time nurse"=54, "finance"=47, "freelancer"=0, "Freelance"=0,  "social worker"=49, "Project Assistant"=47, "social welfare worker"=49, "Students"=0, "Officer"=63, "Accountant"=62, "Project coordinator"=47, "university staff"=60, "Nurse"=54, "Clerk"=37, "Full-time Student (currently taking master programme)"=0, "part-time private tutor"=0, "admin"=60, "Logistics Manager"=60, "teacher"=61, "worker"=13, "Full-time student"=0, "customer service executive"=39, "Flight attendant"=50, "Admin"=60, "Programme Assistant"=53,  "full timw student"=0, "Manager"=51, "retired"=0, "haha"=0, "No"=0, "Part time lecturer in universities"=78, "almost retired"=0, "Communication"=52, "Copywriter"=58, "sales"=47, "unemployed"=0, "Project Coordinator"=53, "Project Coordinator"=53, "Administrative Assistant"=53, "PhD student"=0, "Electronic Engineer"=65, "Traders"= 50, "Executive assistant"=53, "Pharmacist"=64, "freelancer"=0, "Postdoctoral Fellow"=58, "Research Assistant"=58, "language research assistant"=58, "education"=50, "administrator"=53, "statistician"=56, "Researcher"=58, "administrative staff"=53, "library assistant"=54, "marketing"=60, "Manager at CUHK"=60, "housewife"=0, "Education"=78, "education worker"=61, "teacher"=61, "Open Water Scuba Instructor"=32, "Research Scientist"=58, "Environmental consultant"=56, "Public Relations & Marketing professional"=57, "interpreter"=62, "driver"=33, "janitor and truck driver"=33, "Businessman"=50, "clerk and property manager"=37, "Primary School Principal, Bank Manager"=60, "cleaner"=21, "MTR mechanic"=66, "banker"=60, "technician, housewife"=48, "senior manager"=51, "Public servant"=55, "civil servant"=55, "merchant"=56, "teacher, housewife"=61, "merchant, banker"=60, "businessmen"=50, "caterer and cleaner"=21, "secretary, real estate"=60, "Healthcare assistant in HA and housewife"=73, "construction worker"=16, "self employed, sales person"=32, "Entrepreneurs"=50, "Jobless"=0, "Banking"=50, "Communications Manager"=60, "Waiter"=21, "business owners"=70, "Car mechanics, accountant"=62, "Father: Plumber; Mother: Housewife"=62, "secretary and engineer "=62, "Teacher and Engineer"=62, "工務員"=33, "文員"=37,  "casual work"=33,  "Fashion designer & accountant"=62, "Catering"=21, "Bank Staff"=60, "裝修工人"=49,  "無業"=0, "Sales and clerk"=37, "Mother health care worker "=70, "Entrepreneurs "=70,"Nurse and customs officer"=54,"hospital assistant "=73,"interpreter"=62,"manager"=51,"unemployed"=0,"Public Relations & Marketing professional"=60,"Environmental consultant"=56,"Research Scientist"=63,"Open Water Scuba Instructor"=26,"edtior"=58,"Teacher in HK, Clerk in Canada"=63,"NA"=0,"Clerk"=37,"worker"=32,"student"=0,"0"=0,"education worker"=62,"ask him what is this: Yea vu g"=0,"research assistant"=62,"Education"=62,"housewife"=0,"Manager in CUHK"=62,"teacher"=62,"marketing"=60,"analyst"=62,"administration"=60,"library assistant"=36,"administrative staff"=53,"Researcher"=62,"administrator"=53,"statistican"=56,"social worker"=52,"nurse"=54,"language research assistant"=62,"Postdoctoral Fellow"=62,"freelancer"=62,"engineer"=63,"Pharmacist"=64,"Executive assistant"=53,"Traders"=55,"Electronic Engineer"=65,"PhD student"=0,"Administrative Assistant"=53,"Project coordinator"=60,"Copywriter"=60,"sales"=60,"Communications Manager "=60,"almost retired"=0,"Part time lecturer in universities"=62,"No"=0,"haha"=0,"retired"=0,"full timw student"=0,"Programme Assistant"=53,"Admin"=53,"Flight attendant "=53,"customer service executive"=60,"Full-time student"=0,"Logistics Manager"=60, "Financial analyst"=47)
+
+dat_r$spocpr<-recode(data$spjob,  "chef, security guard"=31, "cook"=31, "Surveyor"=58, "logistic worker and rehabilitation worker"=60, "factory worker"=33, "sustainability consultant"=56, "waiter"=21, "Technical writer"=58, "engineer"=48, "Engineer"=48,  "doctoral student"=0, "assistant"=0, "teacher"=61, "Education"=61, "customer service"=39, "Researcher"=57, "bank clerk"=42,  "Student and part time accounting clerk "=37, "Junior Research Assistant"=0, "Student"=0, "student"=0, "editor"=58, "Full time student, part time nurse"=54, "finance"=47, "freelancer"=0, "Freelance"=0,  "social worker"=49, "Project Assistant"=47, "social welfare worker"=49, "Students"=0, "Officer"=63, "Accountant"=62, "Project coordinator"=47, "university staff"=60, "Nurse"=54, "Clerk"=37, "Full-time Student (currently taking master programme)"=0, "part-time private tutor"=0, "admin"=60, "Logistics Manager"=60, "teacher"=61, "worker"=13, "Full-time student"=0, "customer service executive"=39, "Flight attendant"=50, "Admin"=60, "Programme Assistant"=53,  "full timw student"=0, "Manager"=51, "retired"=0, "haha"=0, "No"=0, "Part time lecturer in universities"=78, "almost retired"=0, "Communication"=52, "Copywriter"=58, "sales"=47, "unemployed"=0, "Project Coordinator"=53, "Project Coordinator"=53, "Administrative Assistant"=53, "PhD student"=0, "Electronic Engineer"=65, "Traders"= 50, "Executive assistant"=53, "Pharmacist"=64, "freelancer"=0, "Postdoctoral Fellow"=58, "Research Assistant"=58, "language research assistant"=58, "education"=50, "administrator"=53, "statistician"=56, "Researcher"=58, "administrative staff"=53, "library assistant"=54, "marketing"=60, "Manager at CUHK"=60, "housewife"=0, "Education"=78, "education worker"=61, "teacher"=61, "Open Water Scuba Instructor"=32, "Research Scientist"=58, "Environmental consultant"=56, "Public Relations & Marketing professional"=57, "interpreter"=62, "driver"=33, "janitor and truck driver"=33, "Businessman"=50, "clerk and property manager"=37, "Primary School Principal, Bank Manager"=60, "cleaner"=21, "MTR mechanic"=66, "banker"=60, "technician, housewife"=48, "senior manager"=51, "Public servant"=55, "civil servant"=55, "merchant"=56, "teacher, housewife"=61, "merchant, banker"=60, "businessmen"=50, "caterer and cleaner"=21, "secretary, real estate"=60, "Healthcare assistant in HA and housewife"=73, "construction worker"=16, "self employed, sales person"=32, "Entrepreneurs"=50, "Jobless"=0, "Banking"=50, "Communications Manager"=60, "Waiter"=21, "business owners"=70, "Car mechanics, accountant"=62, "Father: Plumber; Mother: Housewife"=62, "secretary and engineer "=62, "Teacher and Engineer"=62, "工務員"=33, "文員"=37,  "casual work"=33,  "Fashion designer & accountant"=62, "Catering"=21, "Bank Staff"=60, "裝修工人"=49,  "無業"=0, "Sales and clerk"=37, "Mother health care worker "=70, "Entrepreneurs "=70,"Nurse and customs officer"=54,"hospital assistant "=73,"interpreter"=62,"manager"=51,"unemployed"=0,"Public Relations & Marketing professional"=60,"Environmental consultant"=56,"Research Scientist"=63,"Open Water Scuba Instructor"=26,"edtior"=58,"Teacher in HK, Clerk in Canada"=63,"NA"=0,"Clerk"=37,"worker"=32,"student"=0,"0"=0,"education worker"=62,"ask him what is this: Yea vu g"=0,"research assistant"=62,"Education"=62,"housewife"=0,"Manager in CUHK"=62,"teacher"=62,"marketing"=60,"analyst"=62,"administration"=60,"library assistant"=36,"administrative staff"=53,"Researcher"=62,"administrator"=53,"statistican"=56,"social worker"=52,"nurse"=54,"language research assistant"=62,"Postdoctoral Fellow"=62,"freelancer"=62,"engineer"=63,"Pharmacist"=64,"Executive assistant"=53,"Traders"=55,"Electronic Engineer"=65,"PhD student"=0,"Administrative Assistant"=53,"Project coordinator"=60,"Copywriter"=60,"sales"=60,"Communications Manager "=60,"almost retired"=0,"Part time lecturer in universities"=62,"No"=0,"haha"=0,"retired"=0,"full timw student"=0,"Programme Assistant"=53,"Admin"=53,"Flight attendant "=53,"customer service executive"=60,"Full-time student"=0,"Logistics Manager"=60, "Financial analyst"=47) -->
+
+<!--dat_r$generation_HK <- recode(data$generation_HK,"First 一 (I immigrated into Hong Kong)"=1,"Second  二 (My parents immigrated into Hong Kong)"=2,"Third 三 (My grand parents immigrated into Hong Kong)"=3,"Fourth or more 四或以上 (my grandparents or older ancestors immigrated into Hong Kong)"=4,"1"=1, "2"=2, "3"=3, "4"=4, "First ‰∏Ä"=1, "Second # ‰∫å"=2, "Third ‰∏â"=3, "Third"=3, "First 一"=1,.default=NULL)-->
+
+<!-- dat_r$otherpaytrip<-recode(data$otherpaytrip,"me"=0,"Myself"=0,"Myself and my boyfriend"=1,"Parents"=1,"family"=1,"我"=0,"Mom"=1,"Family "=1,"My parents"=1,"everyone"=1,"自己"=0,"自己及太太"=1,"自己及丈夫"=1,"父母/祖父母"=1,"I and my husband"=1,"家人"=1,"me "=1,"Solely myself"=1,"myself and my brother"=1,"本人+父母"=1,"Myself "=0,"我和未婚夫"=1,"Myself and the future employer"=1,"母親"=1,"My own savings and parents"=1,"我自己"=0,"我本人"=0,"我同先生"=1,"My parents "=1,"我、父母"=1,"me and my girlfriend"=1,"父母"=1,"me myself"=0,"me,parents"=1,"All family members"=1,"Myself and my future employer"=1,"myself"=0,"parents"=1,"No one"=0,"My parents and myself"=1,"Myself and Family"=1,"solely paid"=0,"My spouse and I"=1,"丈夫"=1,"with partner"=1,"自己一半， 父母一半"=1,"自己。"=0,"me and my fiance"=1,"On my own"=0,"Parents "=1,"自己及伴侶"=1,"Self"=0,.default=NULL) -->
+
+dat_r$generation_HK
+dat_r$otherpaytrip
+dat_r$ocpr
+dat_r$spocpr
+dat_r$parocpr
+
+unique(dat_r$generation_HK)
+
+<!-- write.csv(dat_r, file = "Documents/data_for_OLS_cleaned_4_10_2023.csv")                       -->
+write.csv(dat_r, file = "Documents/data_for_OLS_cleaned.csv")                      
+getwd()
+## R Markdown
+install.packages("survival")
+library(survival)
+d<-data_survival_emigratioon
+hist(d$months_to_thought_of_emigrating, breaks=48)
+
+hist(d$months_to_emigrating, breaks=48)
+d$emigrated<-as.numeric(d$emigrated)
+
+hist(subset(d, emigrated==1)$thought_emigrate)
+hist(subset(d, emigrated==0)$thought_emigrate)
+library(survival)
+d$emigrated<-as.numeric(d$emigrated)
+
+#specify Kaplan-Meier Analysis
+#why can't this find month
+km_fit1<-survfit(Surv(months_to_thought_of_emigrating, emigrated)-1, data=d, type="kaplan-meier")
+
+print(km_fit1)
+#ask stats consultants why this does not fit
+
+#summarize KM analysis results using default time intervals and create a life table
+
+summary(km_fit1)
+
+#sumamrize KM analysis results by pre-specified time intervals and create a life table
+summary(km_fit1, times=c(30, 60, 90 *1,30)
+
+#plot the cumulative survival rates (probabilities)
+plot(km_fit1)
+
+install.packages("survminer")
+library(survminer)
+
+#plot aesthetically pleasing version of plot from above
+ggsurvplot(km_fit1, data=survdat, risk.table=TRUE, conf.int=TRUE, ggtheme=theme_minimal())
+#specify a kaplan meier analysis model with categorical covariate
+km_fit2<-survfit(Surv(months_to_thought_of_emigrating, emigrated)-Race, data=d, type="kaplan-meier")
+
+ggsurvplot(km_fit1, data=survdat, risk.table=TRUE, conf.int=TRUE, pval=TRUE, pval.method=TRUE, ggtheme=theme_minimal())
+#this will tell you whether the curves for different racial groups are statistically significant.
+
+#cox proportional hazards (PH) model--Cox regression models
+#can't get this to run
+res.with.emigrate.initial c<-coxph(Surv(thought_emigrate) ~ birthyear,
+         data=d)
+summary(c)
+
+Log_overallrisk=0.121*female -.44*HK_nationality+ -0.11*satsal + 0.141*married
+
+female=1
+HK_nationality=0
+satsal=1
+married=4.00
+Log_overallrisk=0.121*female -.44*HK_nationality+ -0.11*satsal + 0.141*married
+Log_overallrisk
+exp(Log_overallrisk)
+d$thought_of_emigrating
+
+#I recommend the log rank test because it works better with smaller sample sizes
+#will be same if you have a large enough sample size.
+
+#to grand mean center continuous covariates
+d$c_lsal<-scale(d$lsal, center=TRUE, scale=FALSE)
+d$c_lhhincome<-scale(d$lhhincome, center=TRUE, scale=FALSE)
+d$sal<-log(d$sal)
+d$lhhincome<-log(d$hhincome)
+
+#change order of levels in categorical variable
+# survdat$HL_Race<-factor(survdat levels= "White", "Black", HispanicLatino")
+survdat$HL_Race<-factor(survdat levels= "White", "Black", "HispanicLatino")
+
+#get the value of continuous variable on grand mean scale:
+lsal=16-mean(survdat$lsal, na.rm=TRUE)
+Log_overallrisk=-0.121*RaceB-0.165*Racew-0.11*PH+0.141*PS)
+print(Log_overeallrisk)
+exp(Log_overallrisk)
+
+
+
+
+
+#Nested comparisons
+#Install package
+install.packages("tidyr")
+library(tidyr)
+
+cox_reg1<-coxph(Surv(months_to_thought_emigrating, censored)~female, data=drop_na(d, lsal, censored,, female, satsal))
+#drop_na can drop missing cases
+
+anova(cox_reg1, cox_reg2)
+
+
+#do a nested model comparison
+
+
+
+
+
+
+res.with.emigrate.initial <-
+    coxph(formula = Surv(thought_of_emigrating, censored thought_emigrate) ~ birthyear +female+ cluster(participantID),
+         data    = d,
+         ties    = c("efron","breslow","exact")[1])
+summary(res.with.emigrate.initial)
+
+
+#Call:
+Call:
+coxph(formula = Surv(start, stop, thought_emigrate) ~ birthyear + 
+    female, data = data, ties = c("efron", "breslow", "exact")[1], 
+    cluster = participantID)
+
+  n= 239, number of events= 176 
+   (1 observation deleted due to missingness)
+
+              coef exp(coef) se(coef) robust se      z Pr(>|z|)    
+birthyear -0.09962   0.90518  0.01397   0.01164 -8.558   <2e-16 ***
+female    -0.35763   0.69933  0.15257   0.16546 -2.161   0.0307 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+          exp(coef) exp(-coef) lower .95 upper .95
+birthyear    0.9052      1.105    0.8848    0.9261
+female       0.6993      1.430    0.5056    0.9672
+
+Concordance= 1  (se = 0 )
+Likelihood ratio test= 67.09  on 2 df,   p=3e-15
+Wald test            = 73.3  on 2 df,   p=<2e-16
+Score (logrank) test = 60.92  on 2 df,   p=6e-14,   Robust = 11.47  p=0.003
+
+  (Note: the likelihood ratio and score tests assume independence of
+     observations within a cluster, the Wald and robust score tests do not).
+     
+#This means that each year younger you are, you have a 10% higher probability of migrating out of Hong Kong
+#keeping other variables fixed, at each month, women will have a 40% lower probability of thinking about migrating from Hong Kong than men. \
+#keeping other variables fixed, at each month, a person will have a 10% lower probability of thinking about migrating from Hong Kong than someone who is 1 year older than them. 
+
+# http://rstudio-pubs-static.s3.amazonaws.com/5411_d0603a8032954b98ac187bc20ec644e6.html
+
+install.packages("spduration")
+library("spduration")
+
+data$start = as.Date(data$start, origin="2019-01-01")
+data$month_<-data$month
+data$month<-data$start
+
+emigrate_duration      <- add_duration(data, "emigrate", unitID = "participantID", tID = "start",
+                            freq = "start", ongoing = FALSE)
+emigrate_thought_duration      <- add_duration(data, "emigrate_thought", unitID = "participantID", tID = "start",
+                            freq = "month", ongoing = FALSE)                            
+                            
+
+weib_model <- spdur(
+  starttime ~ birthyear + female,
+  emigrate ~ birthyear, female,
+  data = data, distr = "weib", silent = TRUE)
+  
+  
