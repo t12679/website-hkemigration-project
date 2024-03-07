@@ -120,6 +120,7 @@ function App() {
       <button className="about-button" onClick={() => setVisibleComponent('About')}>{entry && entry.fields.navAbout}</button>
       <button className="interview-button" onClick={() => setVisibleComponent('Interview')}>{entry && entry.fields.takeInterview}</button>
       <button onClick={() => setVisibleComponent('Data')}>{entry && entry.fields.dataAndPreliminaryResults}</button>
+      <button onClick={() => setVisibleComponent('DataProtection')}>{entry && entry.fields.dataAnonymityProtection}</button>
       <LanguageSwitcher 
           className="LanguageSwitcher" 
           currentLanguage={currentLanguage} // Pass the current language to LanguageSwitcher
