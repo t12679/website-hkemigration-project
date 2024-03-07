@@ -80,7 +80,6 @@ function App() {
             <button onClick={() => setVisibleComponent('Project')}>{entry && entry.fields.navProject}</button>
             <button onClick={() => setVisibleComponent('Team')}>{entry && entry.fields.navTeam}</button>
             <button onClick={() => setVisibleComponent('Contact Us')}>{entry && entry.fields.navContact}</button>
-            
           </div>
         )}
       </div>
@@ -95,12 +94,14 @@ function App() {
             <button onClick={() => setVisibleComponent('Cantonese')}>{entry && entry.fields.cantonese}</button>
             <button onClick={() => setVisibleComponent('Mandarin')}>{entry && entry.fields.mandarin}</button>
             <button onClick={() => setVisibleComponent('English')}>{entry && entry.fields.english}</button>
-            <button onClick={() => setVisibleComponent('DataProtection')}>{entry && entry.fields.dataAnonymityProtection}</button>
           </div>
         )}
       </div>
       
       <button onClick={() => setVisibleComponent('Data')}>{entry && entry.fields.dataAndPreliminaryResults}</button>
+
+
+      <button onClick={() => setVisibleComponent('DataProtection')}>{entry && entry.fields.dataAnonymityProtection}</button>
       
       <div className='dropdown-buttons'>
         <LanguageSwitcher 
