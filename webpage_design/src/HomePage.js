@@ -164,7 +164,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                 </div>
                 <div className='ChartSource1'>
                     {data[currentYear].source1} <a href="https://www.cpr.cuhk.edu.hk/en/press/survey-findings-on-views-about-emigration-from-hong-kong-released-by-the-hong-kong-institute-of-asia-pacific-studies-at-cuhk-3/" 
-                    target="_blank" rel="noopener noreferrer">CUHK Communications and Public Relations Office</a>
+                    target="_blank" rel="noopener noreferrer">Hong Kong Institute for Asian Pacific Studies</a>
                 </div>
             </div>
 
