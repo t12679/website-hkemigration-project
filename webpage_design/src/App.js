@@ -107,8 +107,8 @@ function App() {
         <LanguageSwitcher 
           className="LanguageSwitcher" 
           useDropdown={true} 
-          currentLanguage={currentLanguage} // Pass the current language to LanguageSwitcher
-          setCurrentLanguage={setCurrentLanguage} // Pass the setter to LanguageSwitcher
+          currentLanguage={currentLanguage} 
+          setCurrentLanguage={setCurrentLanguage} 
         />
       </div>
     </nav>
@@ -123,8 +123,8 @@ function App() {
       <button onClick={() => setVisibleComponent('DataProtection')}>{entry && entry.fields.dataAnonymityProtection}</button>
       <LanguageSwitcher 
           className="LanguageSwitcher" 
-          currentLanguage={currentLanguage} // Pass the current language to LanguageSwitcher
-          setCurrentLanguage={setCurrentLanguage} // Pass the setter to LanguageSwitcher
+          currentLanguage={currentLanguage} 
+          setCurrentLanguage={setCurrentLanguage} 
         />
     </nav>
   )

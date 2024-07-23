@@ -21,7 +21,6 @@
     text-align: center;
 }
 
-
 .Homepage1-content{
     width: 70%;
     font-size: 25px;
@@ -57,7 +56,7 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    width: 70%; /* or adjust as necessary */
+    width: 70%; 
     gap: 350px;
 }
 
@@ -66,7 +65,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    width: 70%; /* or adjust as necessary */
+    width: 70%; 
     
 }
 
@@ -102,8 +101,6 @@
     margin-right: 0.5em; /* Add some margin to the right of the color box */
 }
 
-
-
 .First-Chart-container {
     order: 2;
     display: flex;
@@ -112,7 +109,6 @@
 
 }
 
-
 .chart-wrapper {
     display: flex;
     flex-direction: column;
@@ -120,7 +116,6 @@
     align-items: center;
     width: 100%; 
   }
-
 
 .chart-title {
     text-align: center;
@@ -133,8 +128,6 @@
     font-size: 20px;
     margin: 30px 0px; /* adjust as necessary */
 }
-
-
 
 .Year{
     display: flex;
@@ -167,7 +160,6 @@
     border-right: 1px solid black !important;
 }
 
-
 .button-group button.selected {
     background-color:rgb(62, 182, 230); 
     color: white; 
@@ -179,7 +171,6 @@
     font-size: 10px;
 }
 
-
 .TextAboveChart3{
     margin-top: 50px;
     font-size: 20px;
@@ -188,7 +179,6 @@
     text-align: center;
 
 }
-
 
 .Second-chart-container{
     order: 4;
@@ -210,13 +200,13 @@
     display: flex; /* This will lay out its children inline with each other */
     align-items: center; 
     justify-content: center; 
-  }
+}
   
   .minus-sign {
     margin-top: -32px;
     margin-right: -140px;
     margin-left: 140px;
-  }
+}
 
 .ChartSource2{
     order: 5;

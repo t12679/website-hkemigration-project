@@ -108,24 +108,17 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
         return acc;
       }, {});
 
-    
 
 
   return (
     <div>
-       
-
-
         <div className = "Homepage1">
-            <h1 className= "Homepage1-heading">{data[currentYear].heading}</h1>
-            
+            <h1 className= "Homepage1-heading">{data[currentYear].heading}</h1>    
         </div>
        
-
-        <div className='Chart-section'>
-            
+        <div className='Chart-section'> 
             <div className="Charts-container">
-              
+                 
                 {/*<div className="chart-legend">
                 <div className="legend-item">
                         <div className="legend-color" style={{ backgroundColor: '#61889e' }}></div>
@@ -137,13 +130,11 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                     </div>
                 </div>*/}
 
-<               div className='ChartNote'>
+                <div className='ChartNote'>
                     {data[currentYear].dotNote}
                 </div>
 
-                
                 <div className="First-Chart-container">
-                    
                     <div className="chart-wrapper">
                         <DotChart
                          key={`${currentYear}Chart1`}
@@ -160,17 +151,15 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                         animate={animateCharts}/>
                         <div className="chart-title">{data[currentYear].chart2Title}</div>
                     </div>
-
                 </div>
+
                 <div className='ChartSource1'>
                     {data[currentYear].source1} <a href="https://www.cpr.cuhk.edu.hk/en/press/survey-findings-on-views-about-emigration-from-hong-kong-released-by-the-hong-kong-institute-of-asia-pacific-studies-at-cuhk-3/" 
                     target="_blank" rel="noopener noreferrer">Hong Kong Institute for Asian Pacific Studies</a>
                 </div>
             </div>
 
-
             <div className='TextAboveChart3'><ReactMarkdown>{data[currentYear].textAboveChart3}</ReactMarkdown></div>
-
 
             {currentYear !== 2023 && (
             <div className="Second-chart-container">
@@ -184,8 +173,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                             animate={animateCharts}/>
                     </div>
                         <div className="chart-title">{data2[Year].chart3Title}({currentYear+1} - {currentYear})</div>                     
-                </div> 
-                
+                </div>  
             </div>
             )}
 
@@ -239,8 +227,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             <div className = "Homepage1-content">
                  <ReactMarkdown>{entry && entry.fields.Homepage1Content}</ReactMarkdown>
             </div>
-        </div>
-        
+        </div>  
 
         <div className = "Homepage2">
             <div className= "Homepage2-heading">
@@ -253,9 +240,7 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                  </div>
                  <button className = "Story-button" onClick={() => setVisibleComponent('About')}>{entry && entry.fields.Homepage2ContentButton}</button>
             </div>
-        </div>
-
-        
+        </div>      
 
         <div className = "Homepage3">
             <div className="Homepage3-content">
@@ -272,7 +257,6 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             </div>     
         </div>
     
-    
         <div className="image-gallery">
             <img src={hkimmigration1} alt="hkimmigration" className="hkimmigration" />
             <img src={hkimmigration2} alt="hkimmigration" className="hkimmigration" />
@@ -282,8 +266,6 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
         <div className='Methodology'>
             <ReactMarkdown>{entry && entry.fields.Methodology}</ReactMarkdown>
         </div>
-
-
         
         <div className="DiagramContainer">
             <div className='DiagramText'>
@@ -294,14 +276,11 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
             </div>
         </div>
     
-
         <div className='Methodology2'>
             <div className='Methodology2-container'>
                 <ReactMarkdown>{entry && entry.fields.methodology2}</ReactMarkdown>
             </div>
         </div>
-
-        
 
         <div className = "Homepage4">
             <div className="Homepage4-content">
@@ -311,7 +290,6 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
                 </div>
             </div>
         </div>
-
 
         <div className = "Homepage5">
             <div className="Homepage5-content">
@@ -329,15 +307,14 @@ function HomePage({ setVisibleComponent, currentLanguage }) {
              </div>
             <div className='Thermometer-content'>
             <ThermometersWrapper
-                surveyGoal={1000}
-                surveyCurrent={280}
-                interviewGoal={100}
-                interviewCurrent={51}
+                surveyGoal={5000}
+                surveyCurrent={4163}
+                interviewGoal={500}
+                interviewCurrent={318}
             />
             </div>
         </div>
-
-    
+   
         <div className="Homepage-conclusion">
             <div className="conclusion-content">
                 <div className="Homepage-heading4">
