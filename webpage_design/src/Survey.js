@@ -1,5 +1,5 @@
 import React from 'react';
-import DotChart from './chart';
+import DotChart from './Homepage/chart';
 
 function Survey() {
   return (

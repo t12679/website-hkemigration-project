@@ -1,67 +1,14 @@
-.Project {
-    text-align: center;
-    margin: auto;
-    text-align: left;
-    padding-top: 20px;
-  }
-
-
-.heading{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-}
-
-
-
-.ProjectHeading{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-}
-
-
 .ProjectHeading-Container{
-  max-width: 80%;
   font-size: 19px;
-}
-
-
-.WordCloud{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-
-.WordCloud-Container{
-  text-align: center;
-}
-
-.WordCloudImage{
-  width: 80%;
-
 }
 
 .ProjectPreliminaryConclusions{
   background-color: rgba(49,118,84,1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 30px;
 }
 
 .ProjectPreliminaryConclusions-Container{
-  max-width: 80%;
-  font-size: 19px;
+  font-size: 18px;
   color: white;
-
 }
 
 .ProjectCharts {
@@ -73,8 +20,6 @@
   padding-top: 40px;
   margin: auto;
 }
-
-
 
 .ProjectChart {
   width: 650px;
@@ -89,7 +34,6 @@
   z-index: 0;
 }
 
-
 @media (min-width: 1700px) {
   .ProjectCharts {
     width: 95vw;
@@ -100,9 +44,7 @@
     padding-top: 40px;
     margin: auto;
   }
-  
-  
-  
+   
   .ProjectChart {
     width: 750px;
     border-radius: 10px;
@@ -118,7 +60,6 @@
 }
 
 
-
 @media (min-width: 2250px) {
   .ProjectCharts {
     width: 95vw;
@@ -129,8 +70,6 @@
     padding-top: 40px;
     margin: auto;
   }
-  
-  
   
   .ProjectChart {
     width: 850px;
@@ -153,43 +92,25 @@
   z-index: 1;
 }
 
-.ProjectButtonContainer {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  background-color: white;
-}
-
-.ProjectButtonContainer button {
+.ProjectButtonContainerButton {
   background-color: rgba(49,118,84,1);
   color: white;
   border: none;
   padding: 10px;
-  border-radius: 5px;
   transition: background-color 0.3s;
   cursor: pointer;
 }
 
-.ProjectButtonContainer button:hover {
+.ProjectButtonContainerButton:hover {
   background-color: #0056b3;
 }
 
-
 .ProjectContent1{
   background-color: rgba(49,118,84,1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  
-
 }
 
 .ProjectContent1-Container{
   background-color: rgba(49,118,84,1);
-  max-width: 80%;
-  color: white;
   font-size: 19px;
 }
   

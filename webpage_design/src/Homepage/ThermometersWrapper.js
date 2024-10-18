@@ -1,6 +1,6 @@
 // ThermometersWrapper.js
 import React from 'react';
-import Thermometer from './Thermometer'; // Import the Thermometer component
+import Thermometer from './Thermometer'; 
 
 const ThermometersWrapper = ({ surveyGoal, surveyCurrent, interviewGoal, interviewCurrent }) => {
   return (

@@ -1,0 +1,20 @@
+.ProjectCharts-Data {
+  perspective: 1000px; 
+  padding-top: 60px; 
+  background-color: rgba(49, 118, 84, 1); 
+}
+
+   
+.ProjectButtonContainer-Data {
+  background-color: rgba(49,118,84,1);
+}
+  
+.ProjectButtonContainer-Data button {
+  background-color:white;
+  color: black;
+}
+
+.ProjectButtonContainer-Data button:hover {
+  background-color: #0056b3;
+  border-color: transparent;
+}

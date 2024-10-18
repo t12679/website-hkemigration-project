@@ -1,0 +1,55 @@
+.homepage-question {
+    background-image: url('../images/hongkong immigration photos.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+} 
+
+.button-group button {
+    background-color: white;
+    border: 1px solid black; 
+    border-right: none; 
+    width: 60px;
+    height: 30px;    
+}
+
+.first-button {
+    border-radius: 5px 0 0 5px;
+}
+
+.last-button {
+    border-radius: 0 5px 5px 0;
+    border-right: 1px solid black !important;
+}
+
+.button-group button.selected {
+    background-color:rgb(62, 182, 230); 
+    color: white; 
+}
+
+.minus-sign {
+    margin-top: -32px;
+    margin-right: -140px;
+    margin-left: 140px;
+}
+
+.hkemigration-dataplot{
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.2s; 
+}
+
+.hkemigration-dataplot:hover {
+    transform: scale(1.05); 
+}
+
+.hkemigration-images{
+    border-radius: 10px; 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.2s; 
+}
+
+.hkemigration-images:hover {
+    transform: scale(1.1);
+}

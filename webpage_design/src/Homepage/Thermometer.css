@@ -1,0 +1,95 @@
+  .thermometers-wrapper {
+    display: flex;
+    justify-content: space-between; 
+    padding: 20px;
+    gap: 300px
+  }
+  
+  .thermometer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .thermometer-label {
+    margin-bottom: 10px; 
+  }
+
+  .thermometer {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  .thermometer__amount-container {
+    position: relative;
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 10px; 
+  }
+
+  .thermometer__amount {
+    position: absolute;
+    right: 100%;
+    margin-top: 10px;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+  
+  
+  .thermometer__goal {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .thermometer__tube {
+    width: 47px; 
+    height: 250px; 
+    background-color: transparent;
+    border-radius: 30px; 
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    border: 10px solid #ddd; 
+  }
+  
+  .thermometer__tube::before {
+    content: '';
+    position: absolute;
+    bottom: -40px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px; 
+    height: 110px; 
+    background-color: #ddd;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .thermometer__mercury {
+    background-color:rgba(49,118,84,1);
+    width: calc(100%); 
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px;
+  }
+  
+  .thermometer__mercury::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px; 
+    height: 90px; 
+    background-color:  rgba(49,118,84,1);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+
+  

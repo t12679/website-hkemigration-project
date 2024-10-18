@@ -3,7 +3,7 @@ import React from 'react';
 function Mandarin() {
   return (
     <div>
-      <h2>Comming soon...</h2>
+      <h2 className='ms-3 pt-3'>Comming soon...</h2>
       
     </div>
   );

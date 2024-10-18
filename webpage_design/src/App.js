@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
-import HomePage from './HomePage';
-import About from './About';
-import Project from './Project';
-import Team from './Team';
-import ContactUs from './ContactUs'; 
+import HomePage from './Homepage/HomePage';
+import About from './About/About';
+import Project from './About/Project';
+import Team from './About/Team';
+import ContactUs from './About/ContactUs'; 
 import Survey from './Survey';
-import Interview from './Interview';
-import Cantonese from './Cantonese';
-import Mandarin from './Mandarin';
-import English from './English'; 
-import Data from './Data';
-import DataProtection from './DataProtection';
+import Interview from './Interview/Interview';
+import Cantonese from './Interview/Cantonese';
+import Mandarin from './Interview/Mandarin';
+import English from './Interview/English'; 
+import Data from './Data/Data';
+import DataProtection from './DataProtection/DataProtection';
 import './App.css';
 import './i18n';
 import ReactMarkdown from 'react-markdown';
 import LanguageSwitcher from './LanguageSwitcher';
 import useContentful from './useContentful';
-
-
-
-
 
 
 
@@ -65,7 +61,6 @@ function App() {
     }
   }
 
-  
   
 
   const renderNavigation = () => (
@@ -137,7 +132,6 @@ function App() {
           <div className="title" onClick={() => setVisibleComponent('HomePage')}>
           <ReactMarkdown>{entry && entry.fields.websiteTitle}</ReactMarkdown>
           </div>
-
           {renderNavigation()}
         </header>
         <main>

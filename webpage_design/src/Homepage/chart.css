@@ -9,8 +9,8 @@
   background-color: #000;
   margin: 2px;
   opacity: 0;
-  transform: translateY(-50px); /* start 50px above the original position */
-  animation: dotDrop 1s ease-in-out forwards; /* new animation */
+  transform: translateY(-50px); 
+  animation: dotDrop 1s ease-in-out forwards; 
 }
 
 .dot-chart-number {
@@ -27,7 +27,6 @@
   justify-content: flex-end;
 }
 
-/* new keyframes animation */
 @keyframes dotDrop {
   0% { transform: translateY(-50px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }

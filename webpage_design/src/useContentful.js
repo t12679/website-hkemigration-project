@@ -16,7 +16,7 @@ const useContentful = (contentType, locale) => {
   useEffect(() => {
     client.getEntries({ content_type: contentType, locale: locale })
       .then((response) => {
-        setData(response.items); // it will return an array of entries
+        setData(response.items); 
         setIsLoading(false);
       })
       .catch((err) => {

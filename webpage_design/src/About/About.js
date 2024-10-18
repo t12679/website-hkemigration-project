@@ -1,5 +1,5 @@
 import React from 'react';
-import useContentful from './useContentful';
+import useContentful from '../useContentful';
 import ReactMarkdown from 'react-markdown';
 import './About.css';
 
@@ -7,19 +7,21 @@ function About({ currentLanguage }) {
   const { data: Pagedata, isLoading, error } = useContentful('about', currentLanguage);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p> </p>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>; // render some error state
+    return <div>Error: {error.message}</div>; 
   }
   
   const entry = Pagedata ? Pagedata[0] : null;
 
   return (
-    <div className='About'>
-      <div className='AboutContent1'>
-        <ReactMarkdown>{entry && entry.fields.AboutContent1}</ReactMarkdown>
+    <div className='container'>  
+      <div className='row justify-content-center'> 
+        <div className='col-md-8 AboutContent1 pt-4'>  
+          <ReactMarkdown>{entry && entry.fields.AboutContent1}</ReactMarkdown>
+        </div>
       </div>
     </div>
   );

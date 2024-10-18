@@ -6,7 +6,7 @@ function LanguageSwitcher({ className, useDropdown, currentLanguage, setCurrentL
 
   const toggleLanguage = () => {
     const newLanguage = currentLanguage === 'en-US' ? 'zh-Hant-HK' : 'en-US';
-    setCurrentLanguage(newLanguage); // Use the passed-down setCurrentLanguage to update language
+    setCurrentLanguage(newLanguage); 
   };
 
   if (useDropdown) {

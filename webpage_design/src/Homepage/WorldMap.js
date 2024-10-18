@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComposableMap, Geographies, Geography, Annotation, Line, Marker } from 'react-simple-maps';
 import { scaleLinear } from 'd3-scale';
-import worldMapData from './WorldMap Data/ne_10m_admin_0_countries.json';
+import worldMapData from '../WorldMap Data/ne_10m_admin_0_countries.json';
 import './WorldMap.css';
 
 const countryHighlight = {
@@ -84,8 +84,8 @@ function WorldMap() {
 
           <Annotation
               subject={[-100.7, 55]} // Coordinates for Canada
-              dx={171} // Adjust this value
-              dy={34} // Adjust this value
+              dx={171} 
+              dy={34} 
               connectorProps={{
                   stroke: "#000", // line color
                   strokeWidth: 2, // line thickness
@@ -102,8 +102,8 @@ function WorldMap() {
 
         <Annotation
               subject={[133.7751, -25.2744]} // Coordinates for Canada
-              dx={-16} // Adjust this value
-              dy={-58} // Adjust this value
+              dx={-16} 
+              dy={-58} 
               connectorProps={{
                   stroke: "#000", // line color
                   strokeWidth: 0.3, // line thickness
@@ -120,8 +120,8 @@ function WorldMap() {
 
         <Annotation
               subject={[120.9605, 23.6978]} // Coordinates for Canada
-              dx={-6} // Adjust this value
-              dy={2} // Adjust this value
+              dx={-6} 
+              dy={2}
               connectorProps={{
                   stroke: "#000", // line color
                   strokeWidth: 2, // line thickness
@@ -139,8 +139,8 @@ function WorldMap() {
 
         <Annotation
               subject={[-3.4359, 55.3781]} // Coordinates for Canada
-              dx={100} // Adjust this value
-              dy={34} // Adjust this value
+              dx={100} 
+              dy={34} 
               connectorProps={{
                   stroke: "#000", // line color
                   strokeWidth: 2, // line thickness
@@ -160,7 +160,6 @@ function WorldMap() {
               </text>
           </Marker>
         ))}
-
 
           <Marker coordinates={hongKongCoordinates}>
             <circle r={3} fill="black" /> // Adjust size and color as needed

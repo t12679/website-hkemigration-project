@@ -9,10 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0.5;  /* This ensures that the tableContainer takes up a lesser width than map */
+    flex: 0.5;  
     margin-right: -80px;
     margin-right: -20px;
- 
 }
 
 .mapWrapper {

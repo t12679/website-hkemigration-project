@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Allows proper positioning of the dropdown */
+  position: relative; 
 }
 
 
@@ -15,9 +15,9 @@
 }
 
 .dropdown-language {
-  display: none; /* Initially hidden */
+  display: none; 
   position: absolute;
-  top: 110%; /* Positioned just below the button */
+  top: 110%; 
   background-color: #f9f9f9;
   width: 80px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -36,46 +36,45 @@
   cursor: pointer;
 }
 
-  @media (max-width: 1533px){
-    .dropdown-language{
-      top:20px;
-    }
-    
-    }
-    
-  .dropdown-language button {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
+@media (max-width: 1533px){
+  .dropdown-language{
+    top:20px;
+  }  
+}
   
-  .dropdown-language button:hover {
-    background-color: #f1f1f1;
-  }
-  
-  div:hover .dropdown-language {
-    display: block;
-  }
+.dropdown-language button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
 
-  .dropdown-arrow{
-    position: relative;
-    width:60px;
-  }
+.dropdown-language button:hover {
+  background-color: #f1f1f1;
+}
 
-  .dropdown-arrow::after {
-    content: "";
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid white;
-  }
+div:hover .dropdown-language {
+  display: block;
+}
 
-  .dropdown-buttons:hover .dropdown-language {
-    display: flex; /* Show the dropdown when hovering over the parent */
-  }
+.dropdown-arrow{
+  position: relative;
+  width:60px;
+}
+
+.dropdown-arrow::after {
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+}
+
+.dropdown-buttons:hover .dropdown-language {
+  display: flex; 
+}
 

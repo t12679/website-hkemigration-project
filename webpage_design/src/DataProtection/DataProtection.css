@@ -1,0 +1,9 @@
+.DataProtection{
+    display: flex;
+    text-align: center;
+    flex-direction: column;  
+}
+
+.DataProtectionContent{
+    font-size: 19px;
+}
