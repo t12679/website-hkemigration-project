@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.b3151804.css",
-    "main.js": "/static/js/main.eace35a3.js",
-    "static/js/512.e762a3ed.chunk.js": "/static/js/512.e762a3ed.chunk.js",
+    "main.css": "/static/css/main.64e5f3ee.css",
+    "main.js": "/static/js/main.17c17902.js",
+    "static/js/787.df89c28b.chunk.js": "/static/js/787.df89c28b.chunk.js",
     "static/media/hongkong immigration photos.jpg": "/static/media/hongkong immigration photos.ddb45a065d44c410e03e.jpg",
     "static/media/Word Cloud.png": "/static/media/Word Cloud.a53585d293c87ab05b6c.png",
     "static/media/hk immigration1.png": "/static/media/hk immigration1.6ade81931d7280d9037b.png",
@@ -15,12 +15,12 @@
     "static/media/Pension Pots.png": "/static/media/Pension Pots.b56610b49e96a0d872f1.png",
     "static/media/Checking Out.png": "/static/media/Checking Out.57bc7be4ca726140727a.png",
     "index.html": "/index.html",
-    "main.b3151804.css.map": "/static/css/main.b3151804.css.map",
-    "main.eace35a3.js.map": "/static/js/main.eace35a3.js.map",
-    "512.e762a3ed.chunk.js.map": "/static/js/512.e762a3ed.chunk.js.map"
+    "main.64e5f3ee.css.map": "/static/css/main.64e5f3ee.css.map",
+    "main.17c17902.js.map": "/static/js/main.17c17902.js.map",
+    "787.df89c28b.chunk.js.map": "/static/js/787.df89c28b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3151804.css",
-    "static/js/main.eace35a3.js"
+    "static/css/main.64e5f3ee.css",
+    "static/js/main.17c17902.js"
   ]
 }
